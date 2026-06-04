@@ -1,0 +1,114 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  /* Soft blue learning palette — inspired by SkillNest reference */
+  --background: oklch(0.985 0.008 240);
+  --foreground: oklch(0.20 0.04 255);
+  --surface: oklch(0.96 0.018 245);
+  --surface-2: oklch(0.92 0.04 245);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.04 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.04 255);
+
+  --primary: oklch(0.20 0.04 255);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.94 0.025 245);
+  --secondary-foreground: oklch(0.20 0.04 255);
+  --muted: oklch(0.96 0.015 245);
+  --muted-foreground: oklch(0.50 0.03 250);
+
+  --brand: oklch(0.60 0.18 255);        /* primary brand blue */
+  --brand-soft: oklch(0.88 0.07 250);   /* pale wash */
+  --accent: oklch(0.60 0.18 255);
+  --accent-foreground: oklch(0.99 0 0);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.60 0.10 250 / 0.16);
+  --input: oklch(0.60 0.10 250 / 0.22);
+  --ring: oklch(0.60 0.18 255 / 0.45);
+}
+
+.dark { }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+  h1 { letter-spacing: -0.035em; }
+}
+
+@utility surface-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+@utility surface-muted {
+  background-color: var(--color-surface);
+}
+
+/* Signature gradient backdrop matching reference */
+@utility hero-gradient {
+  background:
+    radial-gradient(120% 80% at 100% 0%, oklch(0.78 0.14 250 / 0.55), transparent 60%),
+    radial-gradient(80% 60% at 0% 100%, oklch(0.85 0.10 245 / 0.55), transparent 60%),
+    linear-gradient(135deg, oklch(0.92 0.06 245), oklch(0.82 0.12 250));
+}
+
+@utility brand-wash {
+  background: linear-gradient(180deg, oklch(0.96 0.02 245), oklch(0.90 0.06 248));
+}
