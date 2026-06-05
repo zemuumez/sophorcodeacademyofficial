@@ -1,0 +1,51 @@
+{
+  "photo_titles": {
+    "/content/photos/graduation/graduation_5.jpeg": { "en": "Cohort 03 Graduation", "am": "የኮሆርት 03 ምረቃ" },
+    "/content/photos/classroom/classroom_6.jpeg": { "en": "Coding Lab — Web Track", "am": "የኮዲንግ ላብ — ዌብ ትራክ" },
+    "/content/photos/life_skills/life_skills_7.jpeg": { "en": "Life Skills Circle", "am": "የህይወት ክህሎት ክበብ" },
+    "/content/photos/projects/projects_8.jpeg": { "en": "Capstone Build Sprint", "am": "የካፕስቶን ፕሮጀክት ግንባታ" },
+    "/content/photos/graduation/graduation_9.jpeg": { "en": "Caps Off, Futures On", "am": "ምረቃና ብሩህ ተስፋ" },
+    "/content/photos/classroom/classroom_10.jpeg": { "en": "Python & AI Classroom", "am": "የፓይተን እና የኤአይ ክፍል" },
+    "/content/photos/life_skills/life_skills_11.jpeg": { "en": "Public Speaking Workshop", "am": "የህዝብ ንግግር አውደ ጥናት" },
+    "/content/photos/projects/projects_12.jpeg": { "en": "Team Project — Demo Day", "am": "የቡድን ፕሮጀክት — ማሳያ ቀን" },
+    "/content/photos/graduation/graduation_13.jpeg": { "en": "Graduates Group Shot", "am": "የተመራቂዎች የጋራ ፎቶ" },
+    "/content/photos/classroom/classroom_14.jpeg": { "en": "Mentor-led Code Review", "am": "በአማካሪ የሚመራ የኮድ ክለሳ" },
+    "/content/photos/projects/projects_15.jpeg": { "en": "Group Project Whiteboarding", "am": "የቡድን ፕሮጀክት ውይይት" },
+    "/content/photos/life_skills/life_skills_16.jpeg": { "en": "Confidence & Leadership", "am": "እራስ መተማመን እና አመራር" }
+  },
+  "testimonials": [
+    {
+      "name": "Sara T.",
+      "role": {
+        "en": "Parent, Bole",
+        "am": "ወላጅ፣ ቦሌ"
+      },
+      "quote": {
+        "en": "My daughter built her first website in 3 weeks. The confidence shift is real.",
+        "am": "ልጄ በ 3 ሳምንታት ውስጥ የመጀመሪያዋን ድረ-ገጽ ሰራች። በራሷ የመተማመን ለውጡ የሚታይ ነው።"
+      }
+    },
+    {
+      "name": "Yonas K.",
+      "role": {
+        "en": "Alumni, Age 16",
+        "am": "ተማሪ፣ ዕድሜ 16"
+      },
+      "quote": {
+        "en": "I went from playing games to building one. Sophor gave me my first GitHub.",
+        "am": "ከጨዋታዎች መጫወት ወደ መገንባት ተሸጋገርኩ። ሶፎር የመጀመሪያውን ጊትሃብ አካውንት ሰጠኝ።"
+      }
+    },
+    {
+      "name": "Mahlet G.",
+      "role": {
+        "en": "Teacher Partner",
+        "am": "አጋር መምህር"
+      },
+      "quote": {
+        "en": "The blend of code and life skills is exactly what our youth need today.",
+        "am": "የኮዲንግ እና የህይወት ክህሎት ውህደት ለወጣቶቻችን ልክ አሁን የሚያስፈልጋቸው ነገር ነው።"
+      }
+    }
+  ]
+}

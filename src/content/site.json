@@ -1,0 +1,31 @@
+{
+  "name": "Sophor Code Academy",
+  "short": "Sophor Code Academy",
+  "tagline": {
+    "en": "Code. Create. Conquer.",
+    "am": "ኮድ። ፍጠር። ድል አድርግ።"
+  },
+  "description": {
+    "en": "Ethiopia's summer bootcamp empowering kids and youth with coding, AI, and life skills.",
+    "am": "የልጆችን እና የወጣቶችን በኮዲንግ፣ በ AI እና በህይወት ክህሎት የሚያበቃ የኢትዮጵያ የበጋ ቡትካምፕ።"
+  },
+  "location": {
+    "en": "Addis Ababa, Ethiopia",
+    "am": "አዲስ አበባ፣ ኢትዮጵያ"
+  },
+  "phone": "+251 911 234 567",
+  "email": "hello@sophor.academy",
+  "address": {
+    "en": "Bole Road, Addis Ababa, Ethiopia",
+    "am": "ቦሌ መንገድ፣ አዲስ አበባ፣ ኢትዮጵያ"
+  },
+  "hours": {
+    "en": "Mon–Sat · 9:00 – 18:00 EAT",
+    "am": "ሰኞ-ቅዳሜ · ከጠዋቱ 3:00 - ከሰዓት 12:00"
+  },
+  "social": {
+    "instagram": "https://instagram.com/sophor.academy",
+    "telegram": "https://t.me/sophoracademy",
+    "youtube": "https://youtube.com/@sophoracademy"
+  }
+}

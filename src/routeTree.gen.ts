@@ -13,6 +13,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BootcampsRouteImport } from './routes/bootcamps'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 
 const RegisterRoute = RegisterRouteImport.update({
@@ -35,6 +36,11 @@ const BootcampsRoute = BootcampsRouteImport.update({
   path: '/bootcamps',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/bootcamps': typeof BootcampsRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/bootcamps': typeof BootcampsRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/bootcamps': typeof BootcampsRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
@@ -65,14 +74,28 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bootcamps' | '/contact' | '/gallery' | '/register'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/bootcamps'
+    | '/contact'
+    | '/gallery'
+    | '/register'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bootcamps' | '/contact' | '/gallery' | '/register'
-  id: '__root__' | '/' | '/bootcamps' | '/contact' | '/gallery' | '/register'
+  to: '/' | '/admin' | '/bootcamps' | '/contact' | '/gallery' | '/register'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/bootcamps'
+    | '/contact'
+    | '/gallery'
+    | '/register'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   BootcampsRoute: typeof BootcampsRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
@@ -109,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BootcampsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -121,6 +151,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   BootcampsRoute: BootcampsRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,

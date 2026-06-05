@@ -1,0 +1,258 @@
+{
+  "courses": [
+    {
+      "id": "scratch-makers",
+      "title": {
+        "en": "Scratch Makers",
+        "am": "የስክራች ፈጣሪዎች"
+      },
+      "ageGroup": "Kids",
+      "track": "Fundamentals",
+      "ageRange": {
+        "en": "Ages 8–11",
+        "am": "ከ 8–11 ዓመት"
+      },
+      "duration": {
+        "en": "4 weeks · 3 days/week",
+        "am": "4 ሳምንታት · በሳምንት 3 ቀናት"
+      },
+      "tools": ["Scratch", "MIT App Inventor", "Logic Puzzles"],
+      "outcomes": {
+        "en": ["2 animated stories", "1 mini-game", "Group showcase"],
+        "am": ["2 የታነሙ ታሪኮች", "1 አነስተኛ ጨዋታ", "የቡድን ማሳያ"]
+      },
+      "badge": {
+        "en": "Pixel Pioneer",
+        "am": "ፒክስል አቅኚ"
+      },
+      "accent": "green"
+    },
+    {
+      "id": "web-wizards",
+      "title": {
+        "en": "Web Wizards",
+        "am": "የዌብ ጠቢባን"
+      },
+      "ageGroup": "Teens",
+      "track": "Web",
+      "ageRange": {
+        "en": "Ages 12–15",
+        "am": "ከ 12–15 ዓመት"
+      },
+      "duration": {
+        "en": "6 weeks · 4 days/week",
+        "am": "6 ሳምንታት · በሳምንት 4 ቀናት"
+      },
+      "tools": ["HTML", "CSS", "JavaScript", "Git"],
+      "outcomes": {
+        "en": ["Personal portfolio site", "Interactive landing page"],
+        "am": ["የግል ፖርትፎሊዮ ድረ-ገጽ", "ተስተጋባሪ የማስተዋወቂያ ገጽ"]
+      },
+      "badge": {
+        "en": "Web Architect",
+        "am": "የዌብ አርክቴክት"
+      },
+      "accent": "gold"
+    },
+    {
+      "id": "python-ai",
+      "title": {
+        "en": "Python & AI Explorers",
+        "am": "የፓይተን እና ኤአይ አሳሾች"
+      },
+      "ageGroup": "Teens",
+      "track": "AI",
+      "ageRange": {
+        "en": "Ages 14–17",
+        "am": "ከ 14–17 ዓመት"
+      },
+      "duration": {
+        "en": "6 weeks · 4 days/week",
+        "am": "6 ሳምንታት · በሳምንት 4 ቀናት"
+      },
+      "tools": ["Python", "Pandas", "scikit-learn", "OpenAI API"],
+      "outcomes": {
+        "en": ["AI chatbot", "Image classifier", "Data story"],
+        "am": ["የኤአይ ቻትቦት", "የምስል መለያ", "የመረጃ ትንተና ታሪክ"]
+      },
+      "badge": {
+        "en": "AI Whisperer",
+        "am": "የኤአይ ጠቢብ"
+      },
+      "accent": "red"
+    },
+    {
+      "id": "mobile-makers",
+      "title": {
+        "en": "Mobile App Makers",
+        "am": "የሞባይል መተግበሪያ ፈጣሪዎች"
+      },
+      "ageGroup": "Youth",
+      "track": "Mobile",
+      "ageRange": {
+        "en": "Ages 16–22",
+        "am": "ከ 16–22 ዓመት"
+      },
+      "duration": {
+        "en": "8 weeks · 5 days/week",
+        "am": "8 ሳምንታት · በሳምንት 5 ቀናት"
+      },
+      "tools": ["React Native", "Expo", "Firebase"],
+      "outcomes": {
+        "en": ["Published demo app", "App-store-ready build"],
+        "am": ["የታተመ ማሳያ መተግበሪያ", "ለመተግበሪያ መደብር ዝግጁ የሆነ ግንባታ"]
+      },
+      "badge": {
+        "en": "App Forge",
+        "am": "የመተግበሪያ አንጥረኛ"
+      },
+      "accent": "green"
+    },
+    {
+      "id": "robotics-lab",
+      "title": {
+        "en": "Robotics Lab",
+        "am": "የሮቦቲክስ ላብ"
+      },
+      "ageGroup": "Kids",
+      "track": "Robotics",
+      "ageRange": {
+        "en": "Ages 10–13",
+        "am": "ከ 10–13 ዓመት"
+      },
+      "duration": {
+        "en": "5 weeks · 3 days/week",
+        "am": "5 ሳምንታት · በሳምንት 3 ቀናት"
+      },
+      "tools": ["Arduino", "LEGO Spike", "Sensors"],
+      "outcomes": {
+        "en": ["Line-following bot", "Smart-home demo"],
+        "am": ["መስመር ተከትሎ የሚሄድ ሮቦት", "ዘመናዊ ቤት ማሳያ"]
+      },
+      "badge": {
+        "en": "Circuit Hero",
+        "am": "የሰርኪዩት ጀግና"
+      },
+      "accent": "gold"
+    },
+    {
+      "id": "ai-builders",
+      "title": {
+        "en": "Generative AI Builders",
+        "am": "የጄነሬቲቭ ኤአይ ገንቢዎች"
+      },
+      "ageGroup": "Youth",
+      "track": "AI",
+      "ageRange": {
+        "en": "Ages 16+",
+        "am": "ከ 16 ዓመት በላይ"
+      },
+      "duration": {
+        "en": "6 weeks · 4 days/week",
+        "am": "6 ሳምንታት · በሳምንት 4 ቀናት"
+      },
+      "tools": ["LangChain", "Next.js", "Vector DBs"],
+      "outcomes": {
+        "en": ["Custom AI assistant", "Full-stack AI MVP"],
+        "am": ["የግል የኤአይ ረዳት", "ባለሙሉ መደብ የኤአይ መተግበሪያ"]
+      },
+      "badge": {
+        "en": "Prompt Master",
+        "am": "የፕሮምፕት መምህር"
+      },
+      "accent": "red"
+    }
+  ],
+  "life_skills": [
+    {
+      "title": {
+        "en": "Critical Thinking",
+        "am": "ሂሳዊ አስተሳሰብ"
+      },
+      "desc": {
+        "en": "Break down problems like an engineer.",
+        "am": "ችግሮችን እንደ መሃንዲስ መተንተን እና መፍታት።"
+      },
+      "icon": "Brain"
+    },
+    {
+      "title": {
+        "en": "Teamwork",
+        "am": "የቡድን ስራ"
+      },
+      "desc": {
+        "en": "Ship real projects in cross-age squads.",
+        "am": "በተለያዩ እድሜ ቡድኖች ውስጥ እውነተኛ ፕሮጀክቶችን መስራት።"
+      },
+      "icon": "Users"
+    },
+    {
+      "title": {
+        "en": "Presentation",
+        "am": "የማቅረብ ችሎታ"
+      },
+      "desc": {
+        "en": "Pitch on Demo Day in front of family and mentors.",
+        "am": "በማሳያ ቀን በቤተሰብ እና በአማካሪዎች ፊት ፕሮጀክቶችን ማቅረብ።"
+      },
+      "icon": "Mic"
+    },
+    {
+      "title": {
+        "en": "Growth Mindset",
+        "am": "የእድገት አስተሳሰብ"
+      },
+      "desc": {
+        "en": "Embrace bugs, iterate, ship again.",
+        "am": "ስህተቶችን መቀበል፣ ማሻሻል እና ድጋሚ መሞከር።"
+      },
+      "icon": "Sprout"
+    }
+  ],
+  "values": [
+    {
+      "title": {
+        "en": "Hands-on Projects",
+        "am": "ተግባራዊ ፕሮጀክቶች"
+      },
+      "desc": {
+        "en": "Every learner ships something real — from games to AI apps.",
+        "am": "እያንዳንዱ ተማሪ እውነተኛ ነገር ይሰራል - ከጨዋታዎች እስከ ኤአይ መተግበሪያዎች።"
+      },
+      "icon": "Zap"
+    },
+    {
+      "title": {
+        "en": "AI-First Mindset",
+        "am": "ቅድሚያ ለኤአይ"
+      },
+      "desc": {
+        "en": "We teach kids to build with AI, not just consume it.",
+        "am": "ልጆች ኤአይን እንዲጠቀሙ ብቻ ሳይሆን በእሱ እንዲገነቡ እናስተምራለን።"
+      },
+      "icon": "Bot"
+    },
+    {
+      "title": {
+        "en": "Essential Life Skills",
+        "am": "አስፈላጊ የህይወት ክህሎቶች"
+      },
+      "desc": {
+        "en": "Critical thinking, teamwork, and stage-ready presentation.",
+        "am": "ሂሳዊ አስተሳሰብ፣ የቡድን ስራ እና መድረክ ላይ የማቅረብ ችሎታ።"
+      },
+      "icon": "Sparkles"
+    },
+    {
+      "title": {
+        "en": "Ethiopian, Global",
+        "am": "ኢትዮጵያዊ እና አለም አቀፋዊ"
+      },
+      "desc": {
+        "en": "Rooted in Addis. Curriculum built for global standards.",
+        "am": "በአዲስ አበባ የተመሰረተ። በአለም አቀፍ ደረጃ የተገነባ ስርአተ ትምህርት።"
+      },
+      "icon": "Globe2"
+    }
+  ]
+}

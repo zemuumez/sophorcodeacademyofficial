@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { GsapInit } from "@/components/site/GsapInit";
+import { getCmsData } from "../lib/api/cms.functions";
 
 function NotFoundComponent() {
   return (
@@ -74,35 +75,43 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sophor Code Academy — Ethiopia's Summer Tech Bootcamp" },
-      {
-        name: "description",
-        content:
-          "Sophor Code Academy: summer bootcamps in Addis Ababa teaching kids and youth coding, AI, and life skills.",
-      },
-      { name: "author", content: "Sophor Code Academy" },
-      { property: "og:title", content: "Sophor Code Academy" },
-      {
-        property: "og:description",
-        content: "Code. Create. Conquer. Ethiopia's leading summer tech bootcamp for kids and youth.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,slnt,wdth,wght,ROND@8..144,-10..0,25..150,400..500,0..100&display=swap",
-      },
-    ],
-  }),
+  loader: async () => {
+    return await getCmsData();
+  },
+  head: ({ loaderData }) => {
+    const site = loaderData?.site || {
+      name: "Sophor Code Academy",
+      description: { en: "Sophor Code Academy: summer bootcamps in Addis Ababa teaching kids and youth coding, AI, and life skills." }
+    };
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: `${site.name} — Ethiopia's Summer Tech Bootcamp` },
+        {
+          name: "description",
+          content: site.description.en,
+        },
+        { name: "author", content: site.name },
+        { property: "og:title", content: site.name },
+        {
+          property: "og:description",
+          content: site.description.en,
+        },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,slnt,wdth,wght,ROND@8..144,-10..0,25..150,400..500,0..100&display=swap",
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

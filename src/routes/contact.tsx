@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useLoaderData } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -7,17 +7,24 @@ import { Mail, MapPin, Phone, Clock, CheckCircle2 } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { TextField, TextAreaField } from "@/components/site/Field";
-import { SITE } from "@/constants/site";
+import { useTranslation } from "@/hooks/useTranslation";
+import { getCmsData } from "@/lib/api/cms.functions";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Sophor Code Academy" },
-      { name: "description", content: `Reach Sophor Code Academy in ${SITE.location}. Phone, email, and contact form.` },
-      { property: "og:title", content: "Contact — Sophor Code Academy" },
-      { property: "og:description", content: "Get in touch with Sophor Code Academy." },
-    ],
-  }),
+  loader: async () => {
+    return await getCmsData();
+  },
+  head: ({ loaderData }) => {
+    const site = loaderData?.site || { name: "Sophor Code Academy", location: { en: "" } };
+    return {
+      meta: [
+        { title: `Contact — ${site.name}` },
+        { name: "description", content: `Reach Sophor Code Academy in ${site.location.en}. Phone, email, and contact form.` },
+        { property: "og:title", content: `Contact — ${site.name}` },
+        { property: "og:description", content: "Get in touch with Sophor Code Academy." },
+      ],
+    };
+  },
   component: ContactPage,
 });
 
@@ -32,6 +39,8 @@ type Data = z.infer<typeof schema>;
 const RATE_MS = 30_000; // 30s between submits
 
 function ContactPage() {
+  const { site } = useLoaderData({ from: "/contact" }) as any;
+  const { t, locale } = useTranslation();
   const [done, setDone] = useState(false);
   const [rateError, setRateError] = useState<string | null>(null);
   const lastSubmit = useRef<number>(0);
@@ -46,7 +55,7 @@ function ContactPage() {
   const onSubmit = async (data: Data) => {
     const now = Date.now();
     if (now - lastSubmit.current < RATE_MS) {
-      setRateError("Please wait a moment before sending another message.");
+      setRateError(t("contact_rate_error", "Please wait a moment before sending another message."));
       return;
     }
     lastSubmit.current = now;
@@ -58,14 +67,14 @@ function ContactPage() {
   };
 
   return (
-    <Section centered eyebrow="Contact" title="Let's talk." subtitle="Questions, partnerships, or press — we'd love to hear from you.">
+    <Section centered eyebrow={t("contact_eyebrow", "Contact")} title={t("contact_title", "Let's talk.")} subtitle={t("contact_subtitle", "Questions, partnerships, or press — we'd love to hear from you.")}>
       <div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]">
         {/* INFO */}
         <Reveal className="space-y-5 rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-8">
-          <InfoRow icon={<MapPin size={18} />} label="Visit us" value={SITE.address} />
-          <InfoRow icon={<Phone size={18} />} label="Call" value={SITE.phone} />
-          <InfoRow icon={<Mail size={18} />} label="Email" value={SITE.email} />
-          <InfoRow icon={<Clock size={18} />} label="Hours" value={SITE.hours} />
+          <InfoRow icon={<MapPin size={18} />} label={t("gallery_visit_us", "Visit us")} value={site.address[locale]} />
+          <InfoRow icon={<Phone size={18} />} label={t("gallery_call", "Call")} value={site.phone} />
+          <InfoRow icon={<Mail size={18} />} label={t("gallery_email", "Email")} value={site.email} />
+          <InfoRow icon={<Clock size={18} />} label={t("gallery_hours", "Hours")} value={site.hours[locale]} />
 
           <div className="mt-6 aspect-video overflow-hidden rounded-2xl border border-border">
             <iframe
@@ -82,26 +91,26 @@ function ContactPage() {
           {done ? (
             <div className="py-12 text-center">
               <CheckCircle2 className="mx-auto text-[var(--accent)]" size={48} />
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight">Message sent.</h3>
+              <h3 className="mt-4 text-2xl font-semibold tracking-tight">{t("contact_success_title", "Message sent.")}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                We typically reply within one business day.
+                {t("contact_success_desc", "We typically reply within one business day.")}
               </p>
               <button
                 onClick={() => setDone(false)}
-                className="mt-5 rounded-full border border-border px-5 py-2 text-sm hover:bg-secondary"
+                className="mt-5 rounded-full border border-border px-5 py-2 text-sm hover:bg-secondary cursor-pointer"
               >
-                Send another
+                {t("contact_success_btn", "Send another")}
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
-                <TextField label="Your name" maxLength={80} error={errors.name?.message} {...register("name")} />
-                <TextField label="Email" type="email" maxLength={120} error={errors.email?.message} {...register("email")} />
+                <TextField label={t("contact_form_name", "Your name")} maxLength={80} error={errors.name?.message} {...register("name")} />
+                <TextField label={t("contact_form_email", "Email")} type="email" maxLength={120} error={errors.email?.message} {...register("email")} />
               </div>
-              <TextField label="Subject" maxLength={120} error={errors.subject?.message} {...register("subject")} />
+              <TextField label={t("contact_form_subject", "Subject")} maxLength={120} error={errors.subject?.message} {...register("subject")} />
               <TextAreaField
-                label="Message"
+                label={t("contact_form_message", "Message")}
                 maxLength={1500}
                 error={errors.message?.message}
                 {...register("message")}
@@ -114,9 +123,9 @@ function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="agy-btn agy-btn-primary w-full disabled:opacity-60"
+                className="agy-btn agy-btn-primary w-full disabled:opacity-60 cursor-pointer"
               >
-                {isSubmitting ? "Sending…" : "Send message"}
+                {isSubmitting ? t("contact_form_sending", "Sending…") : t("contact_form_submit", "Send message")}
               </button>
             </form>
           )}
@@ -139,3 +148,4 @@ function InfoRow({ icon, label, value }: { icon: React.ReactNode; label: string;
     </div>
   );
 }
+
