@@ -20,15 +20,18 @@ export function Section({
   title?: string;
   subtitle?: string;
   centered?: boolean;
-  tone?: "default" | "muted" | "brand";
+  tone?: "default" | "muted" | "brand" | "dark";
 }) {
+  const isDark = tone === "dark" || tone === "brand";
+
   return (
     <section
       id={id}
       className={cn(
         "py-20 sm:py-28",
-        tone === "muted" && "bg-[var(--surface)]",
-        tone === "brand" && "brand-wash",
+        tone === "muted" && "bg-[var(--grey-20)]",
+        tone === "brand" && "bg-[var(--grey-10)]",
+        tone === "dark" && "section-dark",
         className,
       )}
     >
@@ -37,18 +40,32 @@ export function Section({
           <Reveal>
             <div className={cn("mb-14 max-w-3xl", centered && "mx-auto text-center")}>
               {eyebrow && (
-                <div className="inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/20 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--brand)] backdrop-blur">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand)]" />
+                <div
+                  className={cn(
+                    "agy-eyebrow",
+                    isDark ? "text-[var(--grey-50)]/70" : "text-[var(--grey-800)]",
+                  )}
+                >
                   {eyebrow}
                 </div>
               )}
               {title && (
-                <h2 className="mt-5 text-[36px] sm:text-[52px] font-bold leading-[1.05] tracking-tight uppercase">
+                <h2
+                  className={cn(
+                    "agy-heading-2 mt-4",
+                    isDark ? "text-[var(--grey-10)]" : "text-[var(--grey-1200)]",
+                  )}
+                >
                   {title}
                 </h2>
               )}
               {subtitle && (
-                <p className="mt-5 text-[17px] leading-relaxed text-muted-foreground">
+                <p
+                  className={cn(
+                    "mt-5 text-[17px] leading-relaxed",
+                    isDark ? "text-[var(--grey-50)]/75" : "text-[var(--grey-800)]",
+                  )}
+                >
                   {subtitle}
                 </p>
               )}

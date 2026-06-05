@@ -74,15 +74,15 @@ function RegisterPage() {
   if (submitted) {
     return (
       <Section>
-        <Reveal className="mx-auto max-w-xl rounded-3xl border border-border bg-white p-12 text-center">
-          <CheckCircle2 className="mx-auto text-[var(--brand)]" size={48} />
-          <h2 className="mt-5 font-display text-3xl font-bold tracking-tight">You're in the squad.</h2>
+        <Reveal className="mx-auto max-w-xl rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-12 text-center">
+          <CheckCircle2 className="mx-auto text-[var(--grey-1200)]" size={48} />
+          <h2 className="mt-5 text-3xl font-medium tracking-tight">You're in the squad.</h2>
           <p className="mt-3 text-muted-foreground">
             We've received the registration. Our team will reach out within 2 business days with payment and onboarding details.
           </p>
           <button
             onClick={() => setSubmitted(false)}
-            className="mt-7 rounded-full bg-[var(--brand)] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+            className="agy-btn agy-btn-primary mt-7"
           >
             Register another student
           </button>
@@ -102,7 +102,7 @@ function RegisterPage() {
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate
-        className="mx-auto max-w-2xl space-y-5 rounded-3xl border border-border bg-white p-8 sm:p-10"
+        className="mx-auto max-w-2xl space-y-5 rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-8 sm:p-10"
       >
         <div className="grid gap-5 sm:grid-cols-2">
           <TextField
@@ -192,7 +192,7 @@ function RegisterPage() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-full bg-[var(--brand)] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60"
+          className="agy-btn agy-btn-primary w-full disabled:opacity-60"
         >
           {isSubmitting ? "Submitting…" : "Reserve seat"}
         </button>

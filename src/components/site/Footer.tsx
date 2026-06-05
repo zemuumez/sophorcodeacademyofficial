@@ -1,31 +1,30 @@
 import { Link } from "@tanstack/react-router";
 import { NAV_LINKS, SITE } from "@/constants/site";
 import { Container } from "./Container";
+import { GradientMark } from "./GradientMark";
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border brand-wash">
-      <Container className="py-14 text-sm text-muted-foreground">
-        <div className="grid gap-10 md:grid-cols-3">
+    <footer className="mt-24 border-t border-[var(--border)] bg-[var(--grey-1200)] text-[var(--grey-10)]">
+      <Container className="py-16 text-sm">
+        <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="grid h-7 w-7 place-items-center rounded-md bg-[var(--brand)] text-[10px] font-bold text-white">
-                S
-              </span>
-              <span className="font-display text-[15px] font-bold tracking-tight text-foreground">
-                {SITE.name}
-              </span>
+            <div className="flex items-center gap-2.5">
+              <GradientMark />
+              <span className="text-[15px] font-medium tracking-tight">{SITE.name}</span>
             </div>
-            <p className="mt-3 max-w-sm leading-relaxed">{SITE.description}</p>
+            <p className="mt-4 max-w-sm leading-relaxed text-[var(--grey-50)]/80">
+              {SITE.description}
+            </p>
           </div>
           <div>
-            <div className="text-[13px] font-semibold uppercase tracking-wider text-foreground">
+            <div className="text-xs font-medium uppercase tracking-wider text-[var(--grey-50)]/60">
               Explore
             </div>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-4 space-y-2.5 text-[var(--grey-50)]/90">
               {NAV_LINKS.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="hover:text-foreground hover:underline">
+                  <Link to={l.to} className="transition hover:text-white hover:underline">
                     {l.label}
                   </Link>
                 </li>
@@ -33,10 +32,10 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <div className="text-[13px] font-semibold uppercase tracking-wider text-foreground">
+            <div className="text-xs font-medium uppercase tracking-wider text-[var(--grey-50)]/60">
               Visit
             </div>
-            <ul className="mt-3 space-y-2">
+            <ul className="mt-4 space-y-2.5 text-[var(--grey-50)]/90">
               <li>{SITE.address}</li>
               <li>{SITE.phone}</li>
               <li>{SITE.email}</li>
@@ -44,7 +43,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 border-t border-border pt-5 text-[12px]">
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs text-[var(--grey-50)]/50">
           Copyright © {new Date().getFullYear()} {SITE.name}. All rights reserved.
         </div>
       </Container>

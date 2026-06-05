@@ -57,8 +57,8 @@ function GalleryPage() {
                 className={cn(
                   "rounded-full border px-4 py-1.5 text-[12px] font-semibold transition",
                   filter === f
-                    ? "border-[var(--brand)] bg-[var(--brand)] text-white shadow-sm"
-                    : "border-border bg-white text-foreground/70 hover:border-[var(--brand)]/40 hover:text-foreground",
+                    ? "border-[var(--grey-1200)] bg-[var(--grey-1200)] text-[var(--grey-10)]"
+                    : "border-[var(--border)] bg-[var(--grey-0)] text-[var(--grey-800)] hover:bg-[var(--grey-15)] hover:text-[var(--grey-1200)]",
                 )}
               >
                 {f}
@@ -92,21 +92,21 @@ function GalleryPage() {
         </div>
       </Section>
 
-      <Section tone="brand" eyebrow="Campus" title="Find us in Addis.">
+      <Section tone="muted" eyebrow="Campus" title="Find us in Addis.">
         <div className="grid gap-10 md:grid-cols-2">
           <Reveal>
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-[12px] font-semibold text-[var(--brand)] backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[var(--grey-0)] px-3 py-1 text-[12px] font-medium text-[var(--grey-1200)]">
                 <MapPin size={14} /> Bole, Addis Ababa
               </div>
-              <h3 className="mt-4 font-display text-3xl font-bold tracking-tight">
+              <h3 className="mt-4 text-3xl font-medium tracking-tight text-[var(--grey-1200)]">
                 A space built for builders.
               </h3>
-              <p className="mt-4 text-[16px] leading-relaxed text-foreground/70">
+              <p className="mt-4 text-[16px] leading-relaxed text-[var(--grey-800)]">
                 Bright classrooms, fast Wi-Fi, makers' lab, quiet study corners, and a mini
                 auditorium for Demo Day. Snacks on us.
               </p>
-              <ul className="mt-6 space-y-2 text-sm text-foreground/70">
+              <ul className="mt-6 space-y-2 text-sm text-[var(--grey-800)]">
                 <li>{SITE.address}</li>
                 <li>{SITE.hours}</li>
                 <li>{SITE.phone}</li>
@@ -114,7 +114,7 @@ function GalleryPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="aspect-video overflow-hidden rounded-3xl border border-white/60 shadow-xl">
+            <div className="aspect-video overflow-hidden rounded-2xl border border-[var(--border)] shadow-xl">
               <img
                 src={campusImage}
                 alt="Sophor campus"

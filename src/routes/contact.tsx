@@ -61,7 +61,7 @@ function ContactPage() {
     <Section centered eyebrow="Contact" title="Let's talk." subtitle="Questions, partnerships, or press — we'd love to hear from you.">
       <div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]">
         {/* INFO */}
-        <Reveal className="space-y-5 rounded-3xl border border-border bg-white p-8">
+        <Reveal className="space-y-5 rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-8">
           <InfoRow icon={<MapPin size={18} />} label="Visit us" value={SITE.address} />
           <InfoRow icon={<Phone size={18} />} label="Call" value={SITE.phone} />
           <InfoRow icon={<Mail size={18} />} label="Email" value={SITE.email} />
@@ -78,7 +78,7 @@ function ContactPage() {
         </Reveal>
 
         {/* FORM */}
-        <Reveal delay={0.1} className="rounded-3xl border border-border bg-white p-8">
+        <Reveal delay={0.1} className="rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-8">
           {done ? (
             <div className="py-12 text-center">
               <CheckCircle2 className="mx-auto text-[var(--accent)]" size={48} />
@@ -114,7 +114,7 @@ function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-full bg-[var(--brand)] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60"
+                className="agy-btn agy-btn-primary w-full disabled:opacity-60"
               >
                 {isSubmitting ? "Sending…" : "Send message"}
               </button>
@@ -129,12 +129,12 @@ function ContactPage() {
 function InfoRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
     <div className="flex items-start gap-4">
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)]">
+      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[var(--grey-20)] text-[var(--grey-1200)]">
         {icon}
       </div>
       <div>
-        <div className="text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
-        <div className="mt-0.5 font-medium text-foreground">{value}</div>
+        <div className="text-xs tracking-wide text-[var(--grey-800)]">{label}</div>
+        <div className="mt-0.5 font-medium text-[var(--grey-1200)]">{value}</div>
       </div>
     </div>
   );

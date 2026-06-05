@@ -80,12 +80,12 @@ function BootcampsPage() {
             const Icon = s.icon;
             return (
               <Reveal key={s.title} delay={i * 0.07}>
-                <div className="h-full rounded-2xl border border-border bg-white p-6 transition hover:-translate-y-1 hover:border-[var(--brand)]/40 hover:shadow-lg">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand)]">
+                <div className="h-full rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--grey-20)] text-[var(--grey-1200)]">
                     <Icon size={18} />
                   </div>
-                  <h3 className="mt-4 font-display text-base font-bold">{s.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-foreground/70">{s.desc}</p>
+                  <h3 className="mt-4 text-base font-medium text-[var(--grey-1200)]">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-[var(--grey-800)]">{s.desc}</p>
                 </div>
               </Reveal>
             );
@@ -99,14 +99,14 @@ function BootcampsPage() {
           {COURSES.map((c, i) => (
             <Reveal key={c.id} delay={i * 0.05}>
               <div className="flex items-center gap-4 rounded-2xl border border-border bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md">
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[var(--brand)]/10 text-[var(--brand)]">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[var(--grey-20)] text-[var(--grey-1200)]">
                   <Award size={20} />
                 </div>
                 <div>
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                  <div className="text-[11px] tracking-wide text-[var(--grey-800)]">
                     {c.title}
                   </div>
-                  <div className="font-display text-base font-bold">{c.badge}</div>
+                  <div className="text-base font-medium text-[var(--grey-1200)]">{c.badge}</div>
                 </div>
               </div>
             </Reveal>
@@ -130,7 +130,7 @@ function FilterRow<T extends string>({
 }) {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
-      <span className="mr-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+      <span className="mr-2 text-[11px] font-medium tracking-wide text-[var(--grey-800)]">
         {label}
       </span>
       {options.map((opt) => (
@@ -138,10 +138,10 @@ function FilterRow<T extends string>({
           key={opt}
           onClick={() => onChange(opt)}
           className={cn(
-            "rounded-full border px-4 py-1.5 text-[12px] font-semibold transition",
+            "rounded-full border px-4 py-1.5 text-[12px] font-medium transition",
             value === opt
-              ? "border-[var(--brand)] bg-[var(--brand)] text-white shadow-sm"
-              : "border-border bg-white text-foreground/70 hover:border-[var(--brand)]/40 hover:text-foreground",
+              ? "border-[var(--grey-1200)] bg-[var(--grey-1200)] text-[var(--grey-10)]"
+              : "border-[var(--border)] bg-[var(--grey-0)] text-[var(--grey-800)] hover:bg-[var(--grey-15)] hover:text-[var(--grey-1200)]",
           )}
         >
           {opt}
