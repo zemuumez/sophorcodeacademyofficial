@@ -229,3 +229,38 @@
 @utility agy-gradient-mark {
   background: var(--gradient-rainbow);
 }
+
+/* Antigravity-style smooth scroll + typewriter cursor */
+.smooth-scroll-wrapper {
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  background: var(--gradient-rainbow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.horizontal-scroll-wrap {
+  width: 100%;
+}

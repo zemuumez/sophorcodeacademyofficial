@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { NAV_LINKS, SITE } from "@/constants/site";
 import { Container } from "./Container";
-import { GradientMark } from "./GradientMark";
+import { SiteLogo } from "./SiteLogo";
 
 export function Footer() {
   return (
@@ -9,10 +9,7 @@ export function Footer() {
       <Container className="py-16 text-sm">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-2.5">
-              <GradientMark />
-              <span className="text-[15px] font-medium tracking-tight">{SITE.name}</span>
-            </div>
+            <SiteLogo className="text-[var(--grey-10)]" />
             <p className="mt-4 max-w-sm leading-relaxed text-[var(--grey-50)]/80">
               {SITE.description}
             </p>

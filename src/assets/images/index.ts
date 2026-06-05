@@ -1,3 +1,7 @@
+import logo from "./logo.jpg";
+
+export { logo };
+
 const imageModules = import.meta.glob<string>("./*.jpeg", {
   eager: true,
   import: "default",

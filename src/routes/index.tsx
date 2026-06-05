@@ -1,15 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Search, Sparkles } from "lucide-react";
-import { useRef } from "react";
+import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
+import { useLayoutEffect, useRef } from "react";
 import { Container } from "@/components/site/Container";
 import { Section } from "@/components/site/Section";
-import { Reveal } from "@/components/site/Reveal";
+import { Reveal, RevealStagger } from "@/components/site/Reveal";
 import { CourseCard } from "@/components/site/CourseCard";
 import { COURSES, VALUES } from "@/constants/courses";
 import { heroImage, studentAvatars } from "@/assets/images";
 import { GALLERY, TESTIMONIALS } from "@/constants/gallery";
 import { SITE } from "@/constants/site";
+import { TypewriterHeadline } from "@/components/site/animations/TypewriterHeadline";
+import { HeroParallaxSection } from "@/components/site/animations/HeroParallax";
+import { HorizontalScrollSection } from "@/components/site/animations/HorizontalScrollSection";
+import { PinnedSplitSection } from "@/components/site/animations/PinnedSplitSection";
+import { gsap, initGsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion-prefs";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,73 +29,76 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroY = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
-
+  const heroIntroRef = useRef<HTMLDivElement>(null);
   const featured = COURSES.slice(0, 3);
+
+  useLayoutEffect(() => {
+    const intro = heroIntroRef.current;
+    if (!intro || prefersReducedMotion()) return;
+
+    initGsap();
+    const items = intro.querySelectorAll<HTMLElement>("[data-hero-intro]");
+    const ctx = gsap.context(() => {
+      gsap.from(items, {
+        opacity: 0,
+        y: 20,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power3.out",
+        delay: 0.15,
+      });
+    }, intro);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      {/* HERO — Antigravity-style dark cinematic panel */}
-      <section ref={heroRef} className="hero-dark min-h-[min(92vh,900px)]">
+      <HeroParallaxSection className="hero-dark min-h-[min(92vh,900px)]">
         <Container className="relative flex min-h-[min(92vh,900px)] flex-col justify-center py-20 sm:py-28">
-          <motion.div
-            style={{ y: heroY, opacity: heroOpacity }}
+          <div
+            ref={heroIntroRef}
             className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16"
           >
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+              <div
+                data-hero-intro
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-wide text-[var(--grey-50)]/80 backdrop-blur"
               >
                 <Sparkles size={12} className="text-[var(--grey-50)]" />
                 Summer 2026 enrollment is open
-              </motion.div>
+              </div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.7 }}
-                className="agy-display mt-6 text-[var(--grey-10)]"
-              >
-                Shaping minds, building futures through smarter learning
-              </motion.h1>
+              <TypewriterHeadline
+                text="Shaping minds, building futures through smarter learning"
+                className="mt-6 text-[var(--grey-10)]"
+              />
 
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
+              <p
+                data-hero-intro
                 className="mt-6 max-w-lg text-[17px] leading-relaxed text-[var(--grey-50)]/75"
               >
                 Join a new-era education where innovation meets knowledge. Discover expert-led
                 bootcamps, practical skills, and real-world projects to launch your goals.
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="mt-8 flex w-full max-w-md items-center gap-2 rounded-full border border-white/12 bg-white/8 p-1.5 backdrop-blur"
-              >
-                <div className="flex flex-1 items-center gap-2 pl-3">
-                  <Search size={15} className="text-[var(--grey-50)]/50" />
-                  <input
-                    placeholder="Enter your interest"
-                    className="w-full bg-transparent py-2 text-sm text-[var(--grey-10)] outline-none placeholder:text-[var(--grey-50)]/40"
-                  />
-                </div>
-                <Link to="/bootcamps" className="agy-btn agy-btn-primary shrink-0 bg-white text-[var(--grey-1200)] hover:bg-[var(--grey-50)]">
-                  Search
+              <div data-hero-intro className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  to="/bootcamps"
+                  className="agy-btn bg-white text-[var(--grey-1200)] hover:bg-[var(--grey-50)]"
+                >
+                  Explore bootcamps <ArrowRight size={14} />
                 </Link>
-              </motion.div>
+                <Link
+                  to="/register"
+                  className="agy-btn border border-white/20 bg-transparent text-[var(--grey-10)] hover:bg-white/10"
+                >
+                  Register now <ArrowUpRight size={14} />
+                </Link>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
+              <div
+                data-hero-intro
                 className="mt-6 flex items-center gap-3 text-[12px] text-[var(--grey-50)]/70"
               >
                 <div className="flex -space-x-2">
@@ -107,15 +115,10 @@ function Home() {
                   <span className="font-medium text-[var(--grey-10)]">300+ students</span> already
                   learning across Addis Ababa
                 </span>
-              </motion.div>
+              </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="relative"
-            >
+            <div data-hero-media className="relative">
               <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl">
                 <img
                   src={heroImage}
@@ -129,82 +132,80 @@ function Home() {
                 </div>
                 <div className="mt-1 text-lg font-medium text-[var(--grey-10)]">July 7, 2026</div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </Container>
-      </section>
+      </HeroParallaxSection>
 
-      {/* PILLAR CARDS */}
       <Section>
-        <div className="grid gap-5 md:grid-cols-3">
+        <RevealStagger className="grid gap-5 md:grid-cols-3" stagger={0.1}>
           {[
             { n: "1,000+", t: "Knowledge Paths", d: "From first lines of code to shipping AI-powered apps." },
             { n: "Empowered", t: "Learning", d: "Live mentors, small cohorts, and real classroom energy." },
             { n: "Thriving", t: "Community", d: "Alumni circles, hackathons, and lifelong builder friendships." },
-          ].map((c, i) => (
-            <Reveal key={c.t} delay={i * 0.08}>
-              <div className="group rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-8 transition hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-20px_rgba(18,19,23,0.1)]">
-                <div className="text-[11px] font-medium tracking-wide text-[var(--grey-800)]">
-                  {c.n}
-                </div>
-                <div className="mt-2 text-2xl font-medium tracking-tight text-[var(--grey-1200)]">
-                  {c.t}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--grey-800)]">{c.d}</p>
+          ].map((c) => (
+            <div
+              key={c.t}
+              data-reveal-item
+              className="group rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-8 transition hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-20px_rgba(18,19,23,0.1)]"
+            >
+              <div className="text-[11px] font-medium tracking-wide text-[var(--grey-800)]">
+                {c.n}
               </div>
-            </Reveal>
+              <div className="mt-2 text-2xl font-medium tracking-tight text-[var(--grey-1200)]">
+                {c.t}
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--grey-800)]">{c.d}</p>
+            </div>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
-      {/* SHAPING THE FUTURE */}
       <Section tone="muted">
-        <div className="grid items-center gap-12 md:grid-cols-2">
-          <Reveal>
-            <h2 className="agy-heading-2 text-[var(--grey-1200)]">
-              Shaping the future of learning with Sophor Code Academy
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-[17px] leading-relaxed text-[var(--grey-800)]">
-              At Sophor Code Academy, we combine innovation, technology, and personalized pathways to
-              create a smarter learning experience — empowering learners to know more, grow faster,
-              and build with greater impact.
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {VALUES.map((v, i) => {
+        <PinnedSplitSection
+          aside={
+            <Reveal>
+              <h2 className="agy-heading-2 text-[var(--grey-1200)]">
+                Shaping the future of learning with Sophor Code Academy
+              </h2>
+              <p className="mt-6 text-[17px] leading-relaxed text-[var(--grey-800)] md:max-w-md">
+                At Sophor Code Academy, we combine innovation, technology, and personalized pathways
+                to create a smarter learning experience — empowering learners to know more, grow
+                faster, and build with greater impact.
+              </p>
+            </Reveal>
+          }
+        >
+          {VALUES.map((v) => {
             const Icon = v.icon;
             return (
-              <Reveal key={v.title} delay={i * 0.06}>
-                <div className="rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
-                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--grey-20)] text-[var(--grey-1200)]">
-                    <Icon size={18} />
-                  </div>
-                  <h3 className="mt-4 text-base font-medium text-[var(--grey-1200)]">{v.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-[var(--grey-800)]">{v.desc}</p>
+              <div
+                key={v.title}
+                className="rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-6"
+              >
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--grey-20)] text-[var(--grey-1200)]">
+                  <Icon size={18} />
                 </div>
-              </Reveal>
+                <h3 className="mt-4 text-base font-medium text-[var(--grey-1200)]">{v.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-[var(--grey-800)]">{v.desc}</p>
+              </div>
             );
           })}
-        </div>
+        </PinnedSplitSection>
       </Section>
 
-      {/* FEATURED BOOTCAMPS */}
       <Section
         eyebrow="Popular Tracks"
         title="Pick your bootcamp."
         subtitle="From first-time coders to AI tinkerers — there's a squad for every age."
       >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featured.map((c, i) => (
-            <Reveal key={c.id} delay={i * 0.08}>
+        <RevealStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          {featured.map((c) => (
+            <div key={c.id} data-reveal-item>
               <CourseCard course={c} />
-            </Reveal>
+            </div>
           ))}
-        </div>
+        </RevealStagger>
         <Reveal>
           <div className="mt-12 text-center">
             <Link
@@ -217,51 +218,56 @@ function Home() {
         </Reveal>
       </Section>
 
-      {/* GALLERY TEASER */}
       <Section tone="dark" eyebrow="Inside the academy" title="Where the magic happens.">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {GALLERY.slice(0, 4).map((g, i) => (
-            <Reveal key={g.id} delay={i * 0.06}>
-              <div className="group aspect-square overflow-hidden rounded-2xl border border-white/10">
+        <div className="-mx-[var(--page-margin)]">
+          <HorizontalScrollSection className="min-h-[70vh]" trackClassName="px-[var(--page-margin)] pb-8">
+            {GALLERY.slice(0, 8).map((g) => (
+              <figure
+                key={g.id}
+                className="w-[min(85vw,420px)] shrink-0 overflow-hidden rounded-2xl border border-white/10"
+              >
                 <img
                   src={g.src}
                   alt={g.title}
                   loading="lazy"
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                  className="aspect-[4/5] h-full w-full object-cover"
                 />
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* TESTIMONIALS */}
-      <Section eyebrow="Voices" title="100k+ happy learner journeys.">
-        <div className="grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.08}>
-              <figure className="rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-7 transition hover:-translate-y-0.5 hover:shadow-xl">
-                <blockquote className="text-[16px] leading-relaxed text-[var(--grey-1200)]">
-                  "{t.quote}"
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--grey-20)] font-medium text-[var(--grey-1200)]">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div className="text-[13px]">
-                    <div className="font-medium text-[var(--grey-1200)]">{t.name}</div>
-                    <div className="text-[var(--grey-800)]">{t.role}</div>
-                  </div>
+                <figcaption className="border-t border-white/10 px-4 py-3 text-sm text-[var(--grey-50)]/80">
+                  {g.title}
                 </figcaption>
               </figure>
-            </Reveal>
-          ))}
+            ))}
+          </HorizontalScrollSection>
         </div>
       </Section>
 
-      {/* CTA */}
+      <Section eyebrow="Voices" title="100k+ happy learner journeys.">
+        <RevealStagger className="grid gap-6 md:grid-cols-3" stagger={0.1}>
+          {TESTIMONIALS.map((t) => (
+            <figure
+              key={t.name}
+              data-reveal-item
+              className="rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-7"
+            >
+              <blockquote className="text-[16px] leading-relaxed text-[var(--grey-1200)]">
+                "{t.quote}"
+              </blockquote>
+              <figcaption className="mt-6 flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--grey-20)] font-medium text-[var(--grey-1200)]">
+                  {t.name.charAt(0)}
+                </div>
+                <div className="text-[13px]">
+                  <div className="font-medium text-[var(--grey-1200)]">{t.name}</div>
+                  <div className="text-[var(--grey-800)]">{t.role}</div>
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </RevealStagger>
+      </Section>
+
       <Section>
-        <Reveal>
+        <Reveal y={32}>
           <div className="hero-gradient relative overflow-hidden rounded-2xl p-12 text-center sm:p-20">
             <h2 className="agy-heading-2 text-[var(--grey-10)]">
               Summer is short.

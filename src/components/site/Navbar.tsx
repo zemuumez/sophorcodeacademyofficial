@@ -3,25 +3,31 @@ import { useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/constants/site";
 import { Container } from "./Container";
-import { GradientMark } from "./GradientMark";
+import { SiteLogo } from "./SiteLogo";
 import { cn } from "@/lib/utils";
+import { useNavbarScroll } from "@/hooks/use-navbar-scroll";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const { location } = useRouterState();
+  const scrolled = useNavbarScroll();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--grey-0)]/95 backdrop-blur-md">
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b backdrop-blur-md transition-[background-color,box-shadow,border-color] duration-300",
+        scrolled
+          ? "border-[var(--border)] bg-[var(--grey-0)]/98 shadow-[0_8px_30px_rgba(18,19,23,0.06)]"
+          : "border-transparent bg-[var(--grey-0)]/80",
+      )}
+    >
       <Container>
         <div
           className="flex items-center justify-between gap-4"
           style={{ minHeight: "var(--nav-height)" }}
         >
-          <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-            <GradientMark />
-            <span className="text-[15px] font-medium tracking-tight text-[var(--grey-1200)]">
-              {SITE.name}
-            </span>
+          <Link to="/" className="text-[var(--grey-1200)]" onClick={() => setOpen(false)}>
+            <SiteLogo />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">

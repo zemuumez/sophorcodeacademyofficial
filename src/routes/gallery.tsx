@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
+import { RevealStagger } from "@/components/site/Reveal";
 import { MapPin } from "lucide-react";
 import { Section } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
@@ -67,15 +67,12 @@ function GalleryPage() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {items.map((g, i) => (
-            <motion.figure
+        <RevealStagger className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4" stagger={0.06}>
+          {items.map((g) => (
+            <figure
               key={g.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: (i % 8) * 0.05, duration: 0.5 }}
-              className="group relative aspect-square overflow-hidden rounded-2xl border border-border bg-white"
+              data-reveal-item
+              className="group relative aspect-square overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--grey-0)]"
             >
               <img
                 src={g.src}
@@ -85,11 +82,11 @@ function GalleryPage() {
               />
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-white opacity-0 transition group-hover:opacity-100">
                 <div className="text-xs font-semibold">{g.title}</div>
-                <div className="text-[10px] uppercase tracking-wider opacity-80">{g.category}</div>
+                <div className="text-[10px] tracking-wider opacity-80">{g.category}</div>
               </figcaption>
-            </motion.figure>
+            </figure>
           ))}
-        </div>
+        </RevealStagger>
       </Section>
 
       <Section tone="muted" eyebrow="Campus" title="Find us in Addis.">
