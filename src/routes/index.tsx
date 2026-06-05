@@ -48,6 +48,15 @@ function formatFilenameToTitle(url: string) {
     .join(" ");
 }
 
+// Helper to check if a title is generic (e.g., camera default names or numbers)
+function isGenericTitle(title: string) {
+  const clean = title.toLowerCase().trim();
+  if (/^\d+$/.test(clean)) return true;
+  if (/^(img|dsc|screenshot|photo|image|avatar|untitled)\s*\d*$/i.test(clean)) return true;
+  if (/^(img|dsc|screenshot|photo|image|avatar|untitled)[_\-\s]*\d+$/i.test(clean)) return true;
+  return false;
+}
+
 function Home() {
   const { site, courses, gallery, photos } = useLoaderData({ from: "/" }) as any;
   const { t, locale } = useTranslation();
@@ -63,18 +72,36 @@ function Home() {
 
   const homepagePhotos = useMemo(() => {
     const list: { id: string; src: string; title: string }[] = [];
+    const photoTitles = gallery?.photo_titles || {};
+
     ["graduation", "classroom", "life_skills", "projects"].forEach((folder) => {
       const filePaths = photos[folder] || [];
       filePaths.forEach((src: string) => {
+        const customTitleObj = photoTitles[src];
+        const customTitle = customTitleObj?.[locale];
+        let title = customTitle || formatFilenameToTitle(src);
+
+        // If it's a generic title and not customized, let's show the category name instead
+        if (isGenericTitle(title) && !customTitle) {
+          const categoryKeyMap: Record<string, string> = {
+            "graduation": "Graduation",
+            "classroom": "Classroom",
+            "life_skills": "Life Skills",
+            "projects": "Projects"
+          };
+          const displayName = categoryKeyMap[folder] || folder;
+          title = t(`filter_cat_${folder}`, displayName);
+        }
+
         list.push({
           id: src,
           src,
-          title: formatFilenameToTitle(src),
+          title,
         });
       });
     });
     return list.slice(0, 8);
-  }, [photos]);
+  }, [photos, gallery, locale, t]);
 
   useLayoutEffect(() => {
     const intro = heroIntroRef.current;

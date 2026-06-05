@@ -1053,48 +1053,115 @@ function AdminPage() {
                   )}
                 </div>
 
-                {/* IMAGES GRID */}
+                {/* IMAGES LIST & EDITOR */}
                 <div>
-                  <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-3">Photos in this folder ({photosData[selectedPhotoCategory]?.length || 0})</h3>
+                  <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-3">
+                    Photos in this folder ({photosData[selectedPhotoCategory]?.length || 0})
+                  </h3>
                   {(!photosData[selectedPhotoCategory] || photosData[selectedPhotoCategory].length === 0) ? (
-                    <div className="text-xs text-muted-foreground py-6 text-center border border-border rounded-lg bg-[var(--grey-15)]">No photos in this folder. Upload one above!</div>
+                    <div className="text-xs text-muted-foreground py-6 text-center border border-border rounded-lg bg-[var(--grey-15)]">
+                      No photos in this folder. Upload one above!
+                    </div>
                   ) : (
-                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 max-h-[350px] overflow-y-auto p-2 border border-border rounded-xl">
-                      {photosData[selectedPhotoCategory].map((src) => (
-                        <div key={src} className="group relative aspect-square overflow-hidden rounded-lg border border-border bg-[var(--grey-15)]">
-                          <img
-                            src={src}
-                            alt=""
-                            className="h-full w-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-2 gap-1.5">
-                            <div className="text-[10px] text-white font-mono break-all line-clamp-2 bg-black/40 px-1 py-0.5 rounded leading-tight">
-                              {src.split("/").pop()}
+                    <div className="space-y-3 max-h-[500px] overflow-y-auto p-2 border border-border rounded-xl bg-[var(--grey-15)]">
+                      {photosData[selectedPhotoCategory].map((src) => {
+                        const filename = src.split("/").pop() || "";
+                        const titleObj = galleryData?.photo_titles?.[src] || { en: "", am: "" };
+                        return (
+                          <div
+                            key={src}
+                            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 rounded-xl border border-border bg-white p-3 shadow-sm"
+                          >
+                            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-border bg-[var(--grey-15)]">
+                              <img src={src} alt="" className="h-full w-full object-cover" />
                             </div>
-                            <div className="flex gap-1 justify-end">
+                            <div className="flex-1 min-w-0 space-y-1 w-full">
+                              <div className="text-[11px] font-mono text-[var(--grey-800)] truncate" title={src}>
+                                {filename}
+                              </div>
+                              <div className="grid gap-2 sm:grid-cols-2">
+                                <div>
+                                  <label className="text-[9px] font-bold uppercase text-muted-foreground block mb-0.5">
+                                    Title (EN)
+                                  </label>
+                                  <input
+                                    type="text"
+                                    value={titleObj.en || ""}
+                                    onChange={(e) => {
+                                      const updatedTitles = {
+                                        ...(galleryData?.photo_titles || {}),
+                                        [src]: {
+                                          ...titleObj,
+                                          en: e.target.value,
+                                        },
+                                      };
+                                      setGalleryData({
+                                        ...galleryData,
+                                        photo_titles: updatedTitles,
+                                      });
+                                    }}
+                                    placeholder="e.g. Cohort 03 Graduation"
+                                    className="w-full rounded border border-border px-2 py-1 text-xs"
+                                  />
+                                </div>
+                                <div>
+                                  <label className="text-[9px] font-bold uppercase text-muted-foreground block mb-0.5">
+                                    Title (AM)
+                                  </label>
+                                  <input
+                                    type="text"
+                                    value={titleObj.am || ""}
+                                    onChange={(e) => {
+                                      const updatedTitles = {
+                                        ...(galleryData?.photo_titles || {}),
+                                        [src]: {
+                                          ...titleObj,
+                                          am: e.target.value,
+                                        },
+                                      };
+                                      setGalleryData({
+                                        ...galleryData,
+                                        photo_titles: updatedTitles,
+                                      });
+                                    }}
+                                    placeholder="e.g. የኮሆርት 03 ምረቃ"
+                                    className="w-full rounded border border-border px-2 py-1 text-xs"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="flex gap-1.5 self-end sm:self-center">
                               <button
                                 onClick={() => {
-                                  // Prompt or copy path
                                   navigator.clipboard.writeText(src);
                                   toast.success("Copied image URL to clipboard!");
                                 }}
-                                className="p-1 rounded bg-white text-xs border hover:bg-secondary flex items-center justify-center cursor-pointer"
+                                className="p-2 rounded-lg bg-[var(--grey-15)] hover:bg-[var(--grey-25)] text-xs border border-border flex items-center justify-center cursor-pointer"
                                 title="Copy relative path"
                               >
-                                <Eye size={12} />
+                                <Eye size={13} />
                               </button>
                               <button
                                 onClick={() => handlePhotoDelete(src)}
-                                className="p-1 rounded bg-white border border-border hover:bg-destructive/10 text-destructive flex items-center justify-center cursor-pointer"
-                                title="Delete image"
+                                className="p-2 rounded-lg bg-[var(--grey-15)] hover:bg-destructive/10 border border-border text-destructive flex items-center justify-center cursor-pointer"
+                                title="Delete photo"
                               >
-                                <Trash2 size={12} />
+                                <Trash2 size={13} />
                               </button>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
+                  )}
+
+                  {photosData[selectedPhotoCategory]?.length > 0 && (
+                    <button
+                      onClick={() => handleSaveData("gallery", galleryData)}
+                      className="agy-btn agy-btn-primary flex items-center gap-2 mt-4"
+                    >
+                      <Save size={16} /> Save Custom Titles
+                    </button>
                   )}
                 </div>
               </div>
