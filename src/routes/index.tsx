@@ -7,6 +7,8 @@ import { Reveal, RevealStagger } from "@/components/site/Reveal";
 import { CourseCard } from "@/components/site/CourseCard";
 import { COURSES, VALUES } from "@/constants/courses";
 import { heroImage, studentAvatars } from "@/assets/images";
+import heroImage2 from "../assets/images/photo_2026-06-05 01.54.02.jpeg";
+
 import { GALLERY, TESTIMONIALS } from "@/constants/gallery";
 import { SITE } from "@/constants/site";
 import { TypewriterHeadline } from "@/components/site/animations/TypewriterHeadline";
@@ -65,7 +67,7 @@ function Home() {
                 data-hero-intro
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-wide text-[var(--grey-50)]/80 backdrop-blur"
               >
-                <Sparkles size={12} className="text-[var(--grey-50)]" />
+                {/* <Sparkles size={12} className="text-[var(--grey-50)]" /> */}
                 Summer 2026 enrollment is open
               </div>
 
@@ -121,7 +123,7 @@ function Home() {
             <div data-hero-media className="relative">
               <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl">
                 <img
-                  src={heroImage}
+                  src={heroImage2}
                   alt="Student coding at Sophor"
                   className="h-[380px] w-full object-cover sm:h-[480px]"
                 />
@@ -140,9 +142,21 @@ function Home() {
       <Section>
         <RevealStagger className="grid gap-5 md:grid-cols-3" stagger={0.1}>
           {[
-            { n: "1,000+", t: "Knowledge Paths", d: "From first lines of code to shipping AI-powered apps." },
-            { n: "Empowered", t: "Learning", d: "Live mentors, small cohorts, and real classroom energy." },
-            { n: "Thriving", t: "Community", d: "Alumni circles, hackathons, and lifelong builder friendships." },
+            {
+              n: "1,000+",
+              t: "Knowledge Paths",
+              d: "From first lines of code to shipping AI-powered apps.",
+            },
+            {
+              n: "Empowered",
+              t: "Learning",
+              d: "Live mentors, small cohorts, and real classroom energy.",
+            },
+            {
+              n: "Thriving",
+              t: "Community",
+              d: "Alumni circles, hackathons, and lifelong builder friendships.",
+            },
           ].map((c) => (
             <div
               key={c.t}
@@ -220,7 +234,10 @@ function Home() {
 
       <Section tone="dark" eyebrow="Inside the academy" title="Where the magic happens.">
         <div className="-mx-[var(--page-margin)]">
-          <HorizontalScrollSection className="min-h-[70vh]" trackClassName="px-[var(--page-margin)] pb-8">
+          <HorizontalScrollSection
+            className="min-h-[70vh]"
+            trackClassName="px-[var(--page-margin)] pb-0"
+          >
             {GALLERY.slice(0, 8).map((g) => (
               <figure
                 key={g.id}
@@ -230,7 +247,7 @@ function Home() {
                   src={g.src}
                   alt={g.title}
                   loading="lazy"
-                  className="aspect-[4/5] h-full w-full object-cover"
+                  className="aspect-[] h-full w-full object-cover"
                 />
                 <figcaption className="border-t border-white/10 px-4 py-3 text-sm text-[var(--grey-50)]/80">
                   {g.title}
