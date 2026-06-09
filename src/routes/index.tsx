@@ -209,7 +209,7 @@ function Home() {
                   {t("hero_next_cohort", "Next cohort")}
                 </div>
                 <div className="mt-1 text-lg font-medium text-[var(--grey-10)]">
-                  {t("hero_next_date", "July 7, 2026")}
+                  {t("hero_next_date", "July 24, 2026")}
                 </div>
               </div>
             </div>
