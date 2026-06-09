@@ -251,9 +251,47 @@
       },
       "desc": {
         "en": "Rooted in Addis. Curriculum built for global standards.",
-        "am": "በአዲስ አበባ የተመሰረተ。 በአለም አቀፍ ደረጃ የተገነባ ስርአተ ትምህርት።"
+        "am": "በአዲስ አበባ የተመሰረተ። በአለም አቀፍ ደረጃ የተገነባ ስርአተ ትምህርት።"
       },
       "icon": "Globe2"
+    }
+  ],
+  "teachers": [
+    {
+      "name": "Samuel Geremew",
+      "role": {
+        "en": "CEO & Lead Computer Science Instructor",
+        "am": "ዋና ስራ አስፈፃሚ እና የኮምፒውተር ሳይንስ መሪ መምህር"
+      },
+      "degree": "MSc Computer Science & CEO",
+      "image": "/content/photos/teachers/samuel_geremew.png"
+    },
+    {
+      "name": "Zemichael Tefera",
+      "role": {
+        "en": "Senior Computer Science Instructor",
+        "am": "ከፍተኛ የኮምፒውተር ሳይንስ መምህር"
+      },
+      "degree": "BSc Computer Science",
+      "image": "/content/photos/teachers/zemichael_tefera.png"
+    },
+    {
+      "name": "Thomas Hailu",
+      "role": {
+        "en": "Software Engineering Instructor",
+        "am": "የሶፍትዌር ኢንጂነሪንግ መምህር"
+      },
+      "degree": "BSc Software Engineer",
+      "image": "/content/photos/teachers/thomas_hailu.png"
+    },
+    {
+      "name": "Michael",
+      "role": {
+        "en": "Computer Science Instructor",
+        "am": "የኮምፒውተር ሳይንስ መምህር"
+      },
+      "degree": "BSc Computer Science",
+      "image": "/content/photos/teachers/michael.png"
     }
   ]
 }

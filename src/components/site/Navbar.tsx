@@ -51,7 +51,7 @@ export function Navbar() {
             className="text-[var(--grey-1200)]"
             onClick={() => setOpen(false)}
           >
-            <SiteLogo />
+            <SiteLogo showName />
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">

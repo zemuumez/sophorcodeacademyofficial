@@ -85,6 +85,35 @@ function Home() {
     return () => clearInterval(interval);
   }, [slideshowImages]);
 
+  const headlines = useMemo(() => [
+    t("hero_headline", "Shaping minds, building futures through smarter learning"),
+    t("hero_headline_2", "Master Web Programming, Python, and AI"),
+    t("hero_headline_3", "Learn Ge'ez, life skills, and indigenous knowledge"),
+    t("hero_headline_4", "Ready for seniors, juniors, kids, and private squads")
+  ], [t]);
+
+  const [currentHeadlineIndex, setCurrentHeadlineIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeadlineIndex((prev) => (prev + 1) % headlines.length);
+    }, 6500);
+    return () => clearInterval(interval);
+  }, [headlines]);
+
+  const getTeacherImage = (teacherName: string, fallbackImage: string) => {
+    const teacherPhotosList = photos?.teachers || [];
+    const normalizedTargetName = teacherName.toLowerCase().replace(/[^a-z0-9]/g, "_");
+    
+    const matchedPhoto = teacherPhotosList.find((url: string) => {
+      const filename = url.split("/").pop() || "";
+      const nameWithoutExt = filename.replace(/\.[^/.]+$/, "").toLowerCase().replace(/[^a-z0-9]/g, "_");
+      return nameWithoutExt === normalizedTargetName;
+    });
+
+    return matchedPhoto || fallbackImage;
+  };
+
   const homepagePhotos = useMemo(() => {
     const list: { id: string; src: string; title: string }[] = [];
     const photoTitles = gallery?.photo_titles || {};
@@ -161,8 +190,8 @@ function Home() {
               </div>
 
               <TypewriterHeadline
-                text={t("hero_headline", "Shaping minds, building futures through smarter learning")}
-                className="mt-6 text-[var(--grey-10)]"
+                text={headlines[currentHeadlineIndex]}
+                className="mt-6 text-[var(--grey-10)] min-h-[96px] sm:min-h-[80px] md:min-h-[120px]"
               />
 
               <p
@@ -375,6 +404,41 @@ function Home() {
             ))}
           </HorizontalScrollSection>
         </div>
+      </Section>
+
+      {/* TEACHERS SECTION */}
+      <Section
+        eyebrow={t("home_teachers_eyebrow", "Mentors")}
+        title={t("home_teachers_title", "Learn from active builders.")}
+        subtitle={t("home_teachers_subtitle", "Our instructors are experienced engineers and educators dedicated to coding, AI, and heritage.")}
+      >
+        <RevealStagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+          {(courses.teachers || []).map((teacher: any) => (
+            <div
+              key={teacher.name}
+              data-reveal-item
+              className="group relative flex flex-col items-center text-center rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--grey-50)] hover:shadow-[0_24px_48px_-20px_rgba(18,19,23,0.1)]"
+            >
+              <div className="relative h-28 w-28 overflow-hidden rounded-full border border-[var(--border)] bg-[var(--grey-15)]">
+                <img
+                  src={getTeacherImage(teacher.name, teacher.image)}
+                  alt={teacher.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-4 text-[17px] font-semibold text-[var(--grey-1200)]">
+                {teacher.name}
+              </h3>
+              <div className="mt-1 text-[12px] font-medium text-[var(--grey-1200)] bg-[var(--grey-20)] px-2.5 py-0.5 rounded-full inline-block">
+                {teacher.degree}
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-[var(--grey-800)]">
+                {teacher.role[locale] || teacher.role.en}
+              </p>
+            </div>
+          ))}
+        </RevealStagger>
       </Section>
 
       <Section eyebrow={t("home_testimonials_eyebrow", "Voices")} title={t("home_testimonials_title", "100k+ happy learner journeys.")}>
