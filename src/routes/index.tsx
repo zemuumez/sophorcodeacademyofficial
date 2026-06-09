@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useLoaderData } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useLayoutEffect, useRef, useMemo } from "react";
+import { useLayoutEffect, useRef, useMemo, useState, useEffect } from "react";
 import * as LucideIcons from "lucide-react";
 import { Container } from "@/components/site/Container";
 import { Section } from "@/components/site/Section";
@@ -69,6 +69,21 @@ function Home() {
     "/content/photos/avatars/avatar_3.jpeg",
   ];
   const heroImage = "/content/photos/hero/hero.jpeg";
+
+  const slideshowImages = useMemo(() => {
+    const list = photos?.slideshow || [];
+    return list.length > 0 ? list : [heroImage];
+  }, [photos?.slideshow]);
+
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  useEffect(() => {
+    if (slideshowImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % slideshowImages.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [slideshowImages]);
 
   const homepagePhotos = useMemo(() => {
     const list: { id: string; src: string; title: string }[] = [];
@@ -197,14 +212,37 @@ function Home() {
             </div>
 
             <div data-hero-media className="relative">
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl">
-                <img
-                  src={heroImage}
-                  alt="Student coding at Sophor"
-                  className="h-[380px] w-full object-cover sm:h-[480px]"
-                />
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl h-[380px] sm:h-[480px]">
+                {slideshowImages.map((src: string, index: number) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt="Sophor classroom slideshow"
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+                      index === currentSlideIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                    }`}
+                  />
+                ))}
+                
+                {/* Slideshow indicator dots */}
+                {slideshowImages.length > 1 && (
+                  <div className="absolute bottom-4 right-4 z-20 flex gap-1.5 rounded-full bg-black/40 px-3 py-1.5 backdrop-blur-sm">
+                    {slideshowImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlideIndex(index)}
+                        className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                          index === currentSlideIndex
+                            ? "w-4 bg-white"
+                            : "w-1.5 bg-white/50 hover:bg-white/80"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-white/10 bg-[var(--grey-1100)]/90 p-4 shadow-xl backdrop-blur sm:block">
+              <div className="absolute -bottom-4 -left-4 z-20 hidden rounded-2xl border border-white/10 bg-[var(--grey-1100)]/90 p-4 shadow-xl backdrop-blur sm:block">
                 <div className="text-[10px] font-medium tracking-wide text-[var(--grey-50)]/60">
                   {t("hero_next_cohort", "Next cohort")}
                 </div>
