@@ -30,8 +30,8 @@ export const Route = createFileRoute("/bootcamps")({
   component: BootcampsPage,
 });
 
-const AGES = ["All", "Kids", "Teens", "Youth"] as const;
-const TRACKS = ["All", "Fundamentals", "Web", "AI", "Mobile", "Robotics"] as const;
+const AGES = ["All", "Kids", "Juniors", "Seniors", "Private"] as const;
+const TRACKS = ["All", "Bootcamp Package", "1-on-1 Mentorship"] as const;
 
 function BootcampsPage() {
   const { courses } = useLoaderData({ from: "/bootcamps" }) as any;
@@ -102,14 +102,14 @@ function BootcampsPage() {
         )}
       </Section>
 
-      {/* LIFE SKILLS */}
+      {/* COMMON CORE */}
       <Section
         tone="muted"
         eyebrow={t("bootcamps_life_skills_eyebrow", "Common core")}
-        title={t("bootcamps_life_skills_title", "Life skills, taught alongside code.")}
-        subtitle={t("bootcamps_life_skills_subtitle", "Every Sophor bootcamp, regardless of track, includes our mandatory Life Skills module.")}
+        title={t("bootcamps_life_skills_title", "Common core, taught alongside code.")}
+        subtitle={t("bootcamps_life_skills_subtitle", "Every Sophor bootcamp program includes our mandatory common core: Ge'ez heritage, life skills, and indigenous knowledge.")}
       >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {courses.life_skills.map((s: any, i: number) => {
             const Icon = getIcon(s.icon);
             return (

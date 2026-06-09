@@ -1,13 +1,13 @@
 {
   "courses": [
     {
-      "id": "scratch-makers",
+      "id": "kids-bootcamp",
       "title": {
-        "en": "Scratch Makers",
-        "am": "የስክራች ፈጣሪዎች"
+        "en": "Sophor Kids Bootcamp",
+        "am": "የሶፎር የህፃናት ቡትካምፕ"
       },
       "ageGroup": "Kids",
-      "track": "Fundamentals",
+      "track": "Bootcamp Package",
       "ageRange": {
         "en": "Ages 8–11",
         "am": "ከ 8–11 ዓመት"
@@ -16,25 +16,41 @@
         "en": "4 weeks · 3 days/week",
         "am": "4 ሳምንታት · በሳምንት 3 ቀናት"
       },
-      "tools": ["Scratch", "MIT App Inventor", "Logic Puzzles"],
+      "tools": [
+        "Web Programming",
+        "Python",
+        "Introduction to AI",
+        "Geez (Common Core)",
+        "Life Skills (Common Core)",
+        "Indigenous Knowledge (Common Core)",
+        "Robotics (Coming Soon)"
+      ],
       "outcomes": {
-        "en": ["2 animated stories", "1 mini-game", "Group showcase"],
-        "am": ["2 የታነሙ ታሪኮች", "1 አነስተኛ ጨዋታ", "የቡድን ማሳያ"]
+        "en": [
+          "Core programming logic with Python & Web",
+          "Ge'ez language & cultural foundations",
+          "Crucial life skills & presentation skills"
+        ],
+        "am": [
+          "የፓይተን እና ዌብ መሰረታዊ የኮዲንግ ፅንሰ-ሃሳብ",
+          "የግዕዝ ቋንቋ እና የባህል መሰረቶች",
+          "አስፈላጊ የህይወት ክህሎት እና የማቅረብ ችሎታ"
+        ]
       },
       "badge": {
-        "en": "Pixel Pioneer",
-        "am": "ፒክስል አቅኚ"
+        "en": "Sophor Kid Builder",
+        "am": "የሶፎር ህጻን ፈጣሪ"
       },
       "accent": "green"
     },
     {
-      "id": "web-wizards",
+      "id": "juniors-bootcamp",
       "title": {
-        "en": "Web Wizards",
-        "am": "የዌብ ጠቢባን"
+        "en": "Sophor Juniors Bootcamp",
+        "am": "የሶፎር ታዳጊዎች ቡትካምፕ"
       },
-      "ageGroup": "Teens",
-      "track": "Web",
+      "ageGroup": "Juniors",
+      "track": "Bootcamp Package",
       "ageRange": {
         "en": "Ages 12–15",
         "am": "ከ 12–15 ዓመት"
@@ -43,170 +59,155 @@
         "en": "6 weeks · 4 days/week",
         "am": "6 ሳምንታት · በሳምንት 4 ቀናት"
       },
-      "tools": ["HTML", "CSS", "JavaScript", "Git"],
+      "tools": [
+        "Web Programming",
+        "Python",
+        "Introduction to AI",
+        "Geez (Common Core)",
+        "Life Skills (Common Core)",
+        "Indigenous Knowledge (Common Core)",
+        "Robotics (Coming Soon)",
+        "Game Dev (Coming Soon)"
+      ],
       "outcomes": {
-        "en": ["Personal portfolio site", "Interactive landing page"],
-        "am": ["የግል ፖርትፎሊዮ ድረ-ገጽ", "ተስተጋባሪ የማስተዋወቂያ ገጽ"]
+        "en": [
+          "Create websites and Python automation scripts",
+          "Build interactive AI chatbots",
+          "Learn Ge'ez script, life skills and heritage"
+        ],
+        "am": [
+          "ድረ-ገጾችን እና የፓይተን አውቶሜሽን ስክሪፕቶችን መስራት",
+          "ተስተጋባሪ የኤአይ ቻትቦቶችን መገንባት",
+          "የግዕዝ ፊደላትን፣ የህይወት ክህሎትን እና ቅርስን ማወቅ"
+        ]
       },
       "badge": {
-        "en": "Web Architect",
-        "am": "የዌብ አርክቴክት"
+        "en": "Sophor Junior Architect",
+        "am": "የሶፎር ታዳጊ አርክቴክት"
       },
       "accent": "gold"
     },
     {
-      "id": "python-ai",
+      "id": "seniors-bootcamp",
       "title": {
-        "en": "Python & AI Explorers",
-        "am": "የፓይተን እና ኤአይ አሳሾች"
+        "en": "Sophor Seniors Bootcamp",
+        "am": "የሶፎር ወጣቶች ቡትካምፕ"
       },
-      "ageGroup": "Teens",
-      "track": "AI",
-      "ageRange": {
-        "en": "Ages 14–17",
-        "am": "ከ 14–17 ዓመት"
-      },
-      "duration": {
-        "en": "6 weeks · 4 days/week",
-        "am": "6 ሳምንታት · በሳምንት 4 ቀናት"
-      },
-      "tools": ["Python", "Pandas", "scikit-learn", "OpenAI API"],
-      "outcomes": {
-        "en": ["AI chatbot", "Image classifier", "Data story"],
-        "am": ["የኤአይ ቻትቦት", "የምስል መለያ", "የመረጃ ትንተና ታሪክ"]
-      },
-      "badge": {
-        "en": "AI Whisperer",
-        "am": "የኤአይ ጠቢብ"
-      },
-      "accent": "red"
-    },
-    {
-      "id": "mobile-makers",
-      "title": {
-        "en": "Mobile App Makers",
-        "am": "የሞባይል መተግበሪያ ፈጣሪዎች"
-      },
-      "ageGroup": "Youth",
-      "track": "Mobile",
-      "ageRange": {
-        "en": "Ages 16–22",
-        "am": "ከ 16–22 ዓመት"
-      },
-      "duration": {
-        "en": "8 weeks · 5 days/week",
-        "am": "8 ሳምንታት · በሳምንት 5 ቀናት"
-      },
-      "tools": ["React Native", "Expo", "Firebase"],
-      "outcomes": {
-        "en": ["Published demo app", "App-store-ready build"],
-        "am": ["የታተመ ማሳያ መተግበሪያ", "ለመተግበሪያ መደብር ዝግጁ የሆነ ግንባታ"]
-      },
-      "badge": {
-        "en": "App Forge",
-        "am": "የመተግበሪያ አንጥረኛ"
-      },
-      "accent": "green"
-    },
-    {
-      "id": "robotics-lab",
-      "title": {
-        "en": "Robotics Lab",
-        "am": "የሮቦቲክስ ላብ"
-      },
-      "ageGroup": "Kids",
-      "track": "Robotics",
-      "ageRange": {
-        "en": "Ages 10–13",
-        "am": "ከ 10–13 ዓመት"
-      },
-      "duration": {
-        "en": "5 weeks · 3 days/week",
-        "am": "5 ሳምንታት · በሳምንት 3 ቀናት"
-      },
-      "tools": ["Arduino", "LEGO Spike", "Sensors"],
-      "outcomes": {
-        "en": ["Line-following bot", "Smart-home demo"],
-        "am": ["መስመር ተከትሎ የሚሄድ ሮቦት", "ዘመናዊ ቤት ማሳያ"]
-      },
-      "badge": {
-        "en": "Circuit Hero",
-        "am": "የሰርኪዩት ጀግና"
-      },
-      "accent": "gold"
-    },
-    {
-      "id": "ai-builders",
-      "title": {
-        "en": "Generative AI Builders",
-        "am": "የጄነሬቲቭ ኤአይ ገንቢዎች"
-      },
-      "ageGroup": "Youth",
-      "track": "AI",
+      "ageGroup": "Seniors",
+      "track": "Bootcamp Package",
       "ageRange": {
         "en": "Ages 16+",
         "am": "ከ 16 ዓመት በላይ"
       },
       "duration": {
-        "en": "6 weeks · 4 days/week",
-        "am": "6 ሳምንታት · በሳምንት 4 ቀናት"
+        "en": "8 weeks · 5 days/week",
+        "am": "8 ሳምንታት · በሳምንት 5 ቀናት"
       },
-      "tools": ["LangChain", "Next.js", "Vector DBs"],
+      "tools": [
+        "Web Programming",
+        "Python",
+        "Introduction to AI",
+        "Geez (Common Core)",
+        "Life Skills (Common Core)",
+        "Indigenous Knowledge (Common Core)",
+        "Mobile Apps (Coming Soon)",
+        "Robotics (Coming Soon)"
+      ],
       "outcomes": {
-        "en": ["Custom AI assistant", "Full-stack AI MVP"],
-        "am": ["የግል የኤአይ ረዳት", "ባለሙሉ መደብ የኤአይ መተግበሪያ"]
+        "en": [
+          "Full-stack web apps and system automation",
+          "Integrate AI models and neural networks",
+          "Advanced Ge'ez study, heritage and public speaking"
+        ],
+        "am": [
+          "ባለሙሉ መደብ የዌብ መተግበሪያዎች እና አውቶሜሽን",
+          "የኤአይ ሞዴሎችን እና ኔትወርኮችን ማዋሃድ",
+          "የላቀ የግዕዝ ጥናት፣ ቅርስ እና የንግግር ችሎታ"
+        ]
       },
       "badge": {
-        "en": "Prompt Master",
-        "am": "የፕሮምፕት መምህር"
+        "en": "Sophor Elite Developer",
+        "am": "የሶፎር ምርጥ አልሚ"
       },
       "accent": "red"
+    },
+    {
+      "id": "private-bootcamp",
+      "title": {
+        "en": "Sophor Private Bootcamp",
+        "am": "የሶፎር የግል ተማሪዎች ቡትካምፕ"
+      },
+      "ageGroup": "Private",
+      "track": "1-on-1 Mentorship",
+      "ageRange": {
+        "en": "Custom / All Ages",
+        "am": "እንደ ፍላጎትዎ / ሁሉም ዕድሜ"
+      },
+      "duration": {
+        "en": "Flexible Schedule",
+        "am": "ተለዋዋጭ ሰዓታት"
+      },
+      "tools": [
+        "Web Programming",
+        "Python",
+        "Introduction to AI",
+        "Geez (Common Core)",
+        "Life Skills (Common Core)",
+        "Indigenous Knowledge (Common Core)",
+        "Custom Path (Coming Soon)"
+      ],
+      "outcomes": {
+        "en": [
+          "Personalized 1-on-1 guidance & tailored pace",
+          "Flexible focus across core & common subjects",
+          "Build a custom graduation project"
+        ],
+        "am": [
+          "የግል የ 1-ለ-1 ድጋፍ እና ብጁ ፍጥነት",
+          "በዋና እና የጋራ ትምህርቶች ላይ ተለዋዋጭ ትኩረት",
+          "ብጁ የምረቃ ፕሮጀክት መገንባት"
+        ]
+      },
+      "badge": {
+        "en": "Sophor Master Craftsman",
+        "am": "የሶፎር ዋና ጠቢብ"
+      },
+      "accent": "blue"
     }
   ],
   "life_skills": [
     {
       "title": {
-        "en": "Critical Thinking",
-        "am": "ሂሳዊ አስተሳሰብ"
+        "en": "Ge'ez Script & Heritage",
+        "am": "የግዕዝ ፊደላት እና ቅርስ"
       },
       "desc": {
-        "en": "Break down problems like an engineer.",
-        "am": "ችግሮችን እንደ መሃንዲስ መተንተን እና መፍታት።"
+        "en": "Explore our rich history, language roots, and written script.",
+        "am": "የእኛን የበለጸገ ታሪክ፣ የቋንቋ ምንጭ እና የፅሁፍ ስርዓት ይወቁ።"
       },
-      "icon": "Brain"
+      "icon": "BookOpen"
     },
     {
       "title": {
-        "en": "Teamwork",
-        "am": "የቡድን ስራ"
+        "en": "Essential Life Skills",
+        "am": "አስፈላጊ የህይወት ክህሎቶች"
       },
       "desc": {
-        "en": "Ship real projects in cross-age squads.",
-        "am": "በተለያዩ እድሜ ቡድኖች ውስጥ እውነተኛ ፕሮጀክቶችን መስራት።"
+        "en": "Critical thinking, presentation, teamwork, and a growth mindset.",
+        "am": "ሂሳዊ አስተሳሰብ፣ መድረክ ላይ ማቅረብ፣ የቡድን ስራ እና የእድገት አስተሳሰብ።"
       },
-      "icon": "Users"
+      "icon": "Sparkles"
     },
     {
       "title": {
-        "en": "Presentation",
-        "am": "የማቅረብ ችሎታ"
+        "en": "Indigenous Knowledge",
+        "am": "ሀገር በቀል እውቀት"
       },
       "desc": {
-        "en": "Pitch on Demo Day in front of family and mentors.",
-        "am": "በማሳያ ቀን በቤተሰብ እና በአማካሪዎች ፊት ፕሮጀክቶችን ማቅረብ።"
+        "en": "Connect traditional philosophy, arts, and problem-solving with code.",
+        "am": "ባህላዊ ፍልስፍናን፣ ጥበብን እና ችግር ፈቺ ጥበቦችን ከኮድ ጋር ማገናኘት።"
       },
-      "icon": "Mic"
-    },
-    {
-      "title": {
-        "en": "Growth Mindset",
-        "am": "የእድገት አስተሳሰብ"
-      },
-      "desc": {
-        "en": "Embrace bugs, iterate, ship again.",
-        "am": "ስህተቶችን መቀበል፣ ማሻሻል እና ድጋሚ መሞከር።"
-      },
-      "icon": "Sprout"
+      "icon": "Compass"
     }
   ],
   "values": [
@@ -250,7 +251,7 @@
       },
       "desc": {
         "en": "Rooted in Addis. Curriculum built for global standards.",
-        "am": "በአዲስ አበባ የተመሰረተ። በአለም አቀፍ ደረጃ የተገነባ ስርአተ ትምህርት።"
+        "am": "በአዲስ አበባ የተመሰረተ。 በአለም አቀፍ ደረጃ የተገነባ ስርአተ ትምህርት።"
       },
       "icon": "Globe2"
     }

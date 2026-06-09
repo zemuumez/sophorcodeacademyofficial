@@ -62,7 +62,7 @@ function Home() {
   const { t, locale } = useTranslation();
   const heroIntroRef = useRef<HTMLDivElement>(null);
   
-  const featured = courses.courses.slice(0, 3);
+  const featured = courses.courses;
   const studentAvatars = [
     "/content/photos/avatars/avatar_1.jpeg",
     "/content/photos/avatars/avatar_2.jpeg",
@@ -74,7 +74,8 @@ function Home() {
     const list: { id: string; src: string; title: string }[] = [];
     const photoTitles = gallery?.photo_titles || {};
 
-    ["graduation", "classroom", "life_skills", "projects"].forEach((folder) => {
+    ["classroom"].forEach((folder) => {
+    // ["graduation", "classroom", "life_skills", "projects"].forEach((folder) => {
       const filePaths = photos[folder] || [];
       filePaths.forEach((src: string) => {
         const customTitleObj = photoTitles[src];
@@ -288,7 +289,7 @@ function Home() {
         title={t("home_tracks_title", "Pick your bootcamp.")}
         subtitle={t("home_tracks_subtitle", "From first-time coders to AI tinkerers — there's a squad for every age.")}
       >
-        <RevealStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+        <RevealStagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4" stagger={0.08}>
           {featured.map((c: any) => (
             <div key={c.id} data-reveal-item>
               <CourseCard course={c} />
@@ -321,15 +322,15 @@ function Home() {
             {homepagePhotos.map((g: any) => (
               <figure
                 key={g.id}
-                className="w-[min(85vw,420px)] shrink-0 overflow-hidden rounded-2xl border border-white/10"
+                className="w-[min(85vw,420px)] h-[340px] shrink-0 overflow-hidden rounded-2xl border border-white/10 flex flex-col bg-white/5"
               >
                 <img
                   src={g.src}
                   alt={g.title}
                   loading="lazy"
-                  className="aspect-[] h-full w-full object-cover"
+                  className="flex-1 w-full object-cover"
                 />
-                <figcaption className="border-t border-white/10 px-4 py-3 text-sm text-[var(--grey-50)]/80">
+                <figcaption className="border-t border-white/10 px-4 py-3 text-sm text-[var(--grey-50)]/80 bg-[var(--grey-1200)]/80">
                   {g.title}
                 </figcaption>
               </figure>
