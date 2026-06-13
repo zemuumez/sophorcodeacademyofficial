@@ -368,9 +368,9 @@ function Home() {
                   loading="lazy"
                   className="flex-1 w-full object-cover"
                 />
-                <figcaption className="border-t border-white/10 px-4 py-3 text-sm text-[var(--grey-50)]/80 bg-[var(--grey-1200)]/80">
+                {/* <figcaption className="border-t border-white/10 px-4 py-3 text-sm text-[var(--grey-50)]/80 bg-[var(--grey-1200)]/80">
                   {g.title}
-                </figcaption>
+                </figcaption> */}
               </figure>
             ))}
           </HorizontalScrollSection>
