@@ -35,7 +35,7 @@ export async function writeCmsDataServer(type: string, data: any) {
 }
 
 export async function getPhotosServer() {
-  const categories = ["graduation", "classroom", "life_skills", "projects", "avatars", "hero", "general", "slideshow"];
+  const categories = ["graduation", "classroom", "life_skills", "projects", "avatars", "hero", "general", "slideshow", "teachers", "persons"];
   const result: Record<string, string[]> = {};
 
   for (const cat of categories) {

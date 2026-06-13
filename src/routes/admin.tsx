@@ -1013,7 +1013,7 @@ function AdminPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-2">
-                  {["graduation", "classroom", "life_skills", "projects", "avatars", "hero", "general"].map((cat) => (
+                  {["graduation", "classroom", "life_skills", "projects", "avatars", "hero", "general", "slideshow", "teachers", "persons"].map((cat) => (
                     <button
                       key={cat}
                       onClick={() => setSelectedPhotoCategory(cat)}

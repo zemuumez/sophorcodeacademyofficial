@@ -16,9 +16,9 @@ export function Section({
   children: ReactNode;
   className?: string;
   id?: string;
-  eyebrow?: string;
-  title?: string;
-  subtitle?: string;
+  eyebrow?: ReactNode;
+  title?: ReactNode;
+  subtitle?: ReactNode;
   centered?: boolean;
   tone?: "default" | "muted" | "brand" | "dark";
 }) {

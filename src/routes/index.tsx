@@ -8,6 +8,7 @@ import { Reveal, RevealStagger } from "@/components/site/Reveal";
 import { CourseCard } from "@/components/site/CourseCard";
 import { useTranslation } from "@/hooks/useTranslation";
 import { getCmsData, getPhotos } from "@/lib/api/cms.functions";
+import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 
 import { TypewriterHeadline } from "@/components/site/animations/TypewriterHeadline";
 import { HeroParallaxSection } from "@/components/site/animations/HeroParallax";
@@ -377,29 +378,29 @@ function Home() {
         </div>
       </Section>
 
-      <Section eyebrow={t("home_testimonials_eyebrow", "Voices")} title={t("home_testimonials_title", "100k+ happy learner journeys.")}>
-        <RevealStagger className="grid gap-6 md:grid-cols-3" stagger={0.1}>
-          {gallery.testimonials.map((t: any) => (
-            <figure
-              key={t.name}
-              data-reveal-item
-              className="rounded-2xl border border-[var(--border)] bg-[var(--grey-0)] p-7"
-            >
-              <blockquote className="text-[16px] leading-relaxed text-[var(--grey-1200)]">
-                "{t.quote[locale]}"
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-full bg-[var(--grey-20)] font-medium text-[var(--grey-1200)]">
-                  {t.name.charAt(0)}
-                </div>
-                <div className="text-[13px]">
-                  <div className="font-medium text-[var(--grey-1200)]">{t.name}</div>
-                  <div className="text-[var(--grey-800)]">{t.role[locale]}</div>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </RevealStagger>
+      <Section
+        centered
+        eyebrow={
+          <span className="relative inline-flex items-center px-4 py-1.5 text-[11px] font-semibold tracking-wider text-[var(--grey-800)] uppercase">
+            <span className="absolute left-0 bottom-0 w-2.5 h-2.5 border-l border-b border-orange-500" />
+            {t("home_testimonials_eyebrow", "Testimonials")}
+            <span className="absolute right-0 top-0 w-2.5 h-2.5 border-r border-t border-orange-500" />
+          </span>
+        }
+        title={
+          <>
+            {t("home_testimonials_title", "Results that speaks volume")}
+            <span className="block text-[var(--grey-800)] mt-2 font-normal">
+              {t("home_testimonials_subtitle", "Read success stories")}
+            </span>
+          </>
+        }
+        subtitle={t("home_testimonials_desc", "Find out how our happy clients are raving about us.")}
+      >
+        <TestimonialsCarousel
+          testimonials={gallery.testimonials}
+          personsPhotos={photos?.persons}
+        />
       </Section>
 
       <Section>

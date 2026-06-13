@@ -54,8 +54,10 @@
     "home_gallery_title": "Where the magic happens.",
     "home_gallery_subtitle": "Graduation ceremonies, classrooms in motion, life-skill workshops, and real-world group projects.",
     
-    "home_testimonials_eyebrow": "Voices",
-    "home_testimonials_title": "100k+ happy learner journeys.",
+    "home_testimonials_eyebrow": "Testimonials",
+    "home_testimonials_title": "Results that speaks volume",
+    "home_testimonials_subtitle": "Read success stories",
+    "home_testimonials_desc": "Find out how our happy clients are raving about us.",
     
     "cta_title": "Summer is short.\nSkills are forever.",
     "cta_subtitle": "Limited seats per cohort. Reserve yours before the squad fills up.",
@@ -177,7 +179,9 @@
     "home_gallery_subtitle": "የምረቃ ስነ-ስርዓቶች፣ ተንቀሳቃሽ ክፍሎች፣ የህይወት ክህሎት ወርክሾፖች እና እውነተኛ የቡድን ፕሮጀክቶች።",
     
     "home_testimonials_eyebrow": "ምስክርነቶች",
-    "home_testimonials_title": "100k+ ደስተኛ ተማሪዎች።",
+    "home_testimonials_title": "ውጤታማነታችንን የሚመሰክሩ ውጤቶች",
+    "home_testimonials_subtitle": "የስኬት ታሪኮችን ያንብቡ",
+    "home_testimonials_desc": "ደስተኛ ደንበኞቻችን ስለ እኛ ምን እንደሚሉ ይወቁ።",
     
     "cta_title": "ክረምት አጭር ነው\nክህሎት ግን ዘላቂ ነው።",
     "cta_subtitle": "ለእያንዳንዱ ዙር መቀመጫዎች የተገደቡ ናቸው። ሳይሞላ የእርስዎን ያስይዙ።",
