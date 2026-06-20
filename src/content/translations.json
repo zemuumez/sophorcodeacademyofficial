@@ -24,6 +24,9 @@
     
     "hero_enrollment": "Summer 2026 enrollment is open",
     "hero_headline": "Shaping minds, building futures through smarter learning",
+    "hero_headline_2": "Master Web Programming, Python, and AI",
+    "hero_headline_3": "Learn Ge'ez, life skills, and indigenous knowledge",
+    "hero_headline_4": "Ready for seniors, juniors, kids, and private squads",
     "hero_description": "Join a new-era education where innovation meets knowledge. Discover expert-led bootcamps, practical skills, and real-world projects to launch your goals.",
     "hero_btn_explore": "Explore bootcamps",
     "hero_btn_register": "Register now",
@@ -54,10 +57,11 @@
     "home_gallery_title": "Where the magic happens.",
     "home_gallery_subtitle": "Graduation ceremonies, classrooms in motion, life-skill workshops, and real-world group projects.",
     
-    "home_testimonials_eyebrow": "Testimonials",
-    "home_testimonials_title": "Results that speaks volume",
-    "home_testimonials_subtitle": "Read success stories",
-    "home_testimonials_desc": "Find out how our happy clients are raving about us.",
+    "home_testimonials_eyebrow": "Voices",
+    "home_testimonials_title": "100k+ happy learner journeys.",
+    "home_teachers_eyebrow": "Mentors",
+    "home_teachers_title": "Learn from active builders.",
+    "home_teachers_subtitle": "Our instructors are experienced engineers and educators dedicated to coding, AI, and heritage.",
     
     "cta_title": "Summer is short.\nSkills are forever.",
     "cta_subtitle": "Limited seats per cohort. Reserve yours before the squad fills up.",
@@ -148,6 +152,9 @@
     
     "hero_enrollment": "የበጋ 2026 ምዝገባ ተጀምሯል",
     "hero_headline": "በተሻለ ትምህርት አእምሮን መቅረጽ፣ የወደፊቱን መገንባት",
+    "hero_headline_2": "የዌብ ፕሮግራሚንግ፣ ፓይተን እና የኤአይ ክህሎት ማዳበር",
+    "hero_headline_3": "ግዕዝን፣ የህይወት ክህሎትን እና ሀገር በቀል እውቀትን ይማሩ",
+    "hero_headline_4": "ለታዳጊዎች፣ ለወጣቶች፣ ለህፃናት እና ለግል ተማሪዎች የተዘጋጀ",
     "hero_description": "ፈጠራ ከእውቀት ጋር የሚገናኝበትን አዲስ የትምህርት ዘመን ይቀላቀሉ። ግቦችዎን ለማሳካት በባለሙያዎች የሚመሩ ቡትካምፖችን፣ ተግባራዊ ክህሎቶችን እና እውነተኛ ፕሮጀክቶችን ያግኙ።",
     "hero_btn_explore": "ቡትካምፖችን ያስሱ",
     "hero_btn_register": "አሁን ይመዝገቡ",
@@ -179,9 +186,10 @@
     "home_gallery_subtitle": "የምረቃ ስነ-ስርዓቶች፣ ተንቀሳቃሽ ክፍሎች፣ የህይወት ክህሎት ወርክሾፖች እና እውነተኛ የቡድን ፕሮጀክቶች።",
     
     "home_testimonials_eyebrow": "ምስክርነቶች",
-    "home_testimonials_title": "ውጤታማነታችንን የሚመሰክሩ ውጤቶች",
-    "home_testimonials_subtitle": "የስኬት ታሪኮችን ያንብቡ",
-    "home_testimonials_desc": "ደስተኛ ደንበኞቻችን ስለ እኛ ምን እንደሚሉ ይወቁ።",
+    "home_testimonials_title": "100k+ ደስተኛ ተማሪዎች።",
+    "home_teachers_eyebrow": "አማካሪዎች",
+    "home_teachers_title": "ከተግባራዊ ገንቢዎች ይማሩ።",
+    "home_teachers_subtitle": "መምህሮቻችን በኮዲንግ፣ በኤአይ እና በቅርስ ትምህርት ላይ የተሰማሩ ልምድ ያላቸው መሐንዲሶች እና አስተማሪዎች ናቸው።",
     
     "cta_title": "ክረምት አጭር ነው\nክህሎት ግን ዘላቂ ነው።",
     "cta_subtitle": "ለእያንዳንዱ ዙር መቀመጫዎች የተገደቡ ናቸው። ሳይሞላ የእርስዎን ያስይዙ።",
