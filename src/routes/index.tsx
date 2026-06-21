@@ -408,7 +408,7 @@ function Home() {
       </Section>
 
       {/* TEACHERS SECTION */}
-      <Section
+      {/* <Section
         eyebrow={t("home_teachers_eyebrow", "Mentors")}
         title={t("home_teachers_title", "Learn from active builders.")}
         subtitle={t("home_teachers_subtitle", "Our instructors are experienced engineers and educators dedicated to coding, AI, and heritage.")}
@@ -441,8 +441,9 @@ function Home() {
           ))}
         </RevealStagger>
       </Section>
+      */}
 
-      <Section eyebrow={t("home_testimonials_eyebrow", "Voices")} title={t("home_testimonials_title", "100k+ happy learner journeys.")}>
+      <Section eyebrow={t("home_testimonials_eyebrow", "Voices")} title={t("home_testimonials_title", "100+ happy clients.")}>
         <RevealStagger className="grid gap-6 md:grid-cols-3" stagger={0.1}>
           {gallery.testimonials.map((t: any) => (
             <figure
