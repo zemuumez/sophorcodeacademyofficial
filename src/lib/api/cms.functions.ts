@@ -6,6 +6,7 @@ import {
   getPhotosServer,
   uploadPhotoServer,
   deletePhotoServer,
+  submitContactFormServer,
 } from "./cms.server";
 
 // 1. Get CMS data
@@ -54,4 +55,18 @@ export const deletePhoto = createServerFn({ method: "POST" })
   )
   .handler(async ({ data: input }) => {
     return await deletePhotoServer(input.photoUrl);
+  });
+
+// 6. Submit contact form submission
+export const submitContactForm = createServerFn({ method: "POST" })
+  .inputValidator(
+    z.object({
+      name: z.string().min(1),
+      email: z.string().email(),
+      subject: z.string().min(1),
+      message: z.string().min(1),
+    })
+  )
+  .handler(async ({ data: input }) => {
+    return await submitContactFormServer(input);
   });
