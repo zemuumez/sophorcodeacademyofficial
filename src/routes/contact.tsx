@@ -8,7 +8,7 @@ import { Section } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { TextField, TextAreaField } from "@/components/site/Field";
 import { useTranslation } from "@/hooks/useTranslation";
-import { getCmsData } from "@/lib/api/cms.functions";
+import { getCmsData, submitContactForm } from "@/lib/api/cms.functions";
 
 export const Route = createFileRoute("/contact")({
   loader: async () => {
@@ -60,10 +60,14 @@ function ContactPage() {
     }
     lastSubmit.current = now;
     setRateError(null);
-    await new Promise((r) => setTimeout(r, 500));
-    console.log("Contact:", data);
-    setDone(true);
-    reset();
+    try {
+      await submitContactForm({ data });
+      setDone(true);
+      reset();
+    } catch (err) {
+      console.error("Form submit error:", err);
+      setRateError(t("contact_submit_error", "Failed to send message. Please try again."));
+    }
   };
 
   return (

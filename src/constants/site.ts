@@ -5,7 +5,7 @@ export const SITE = {
   description:
     "Ethiopia's summer bootcamp empowering kids and youth with coding, AI, and life skills.",
   location: "Addis Ababa, Ethiopia",
-  phone: "+251 911 234 567",
+  phone: "+251 911 567 465",
   email: "hello@sophor.academy",
   address: "Bole Road, Addis Ababa, Ethiopia",
   hours: "Mon–Sat · 9:00 – 18:00 EAT",
