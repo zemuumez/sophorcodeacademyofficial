@@ -46,6 +46,61 @@
         "en": "The blend of code and life skills is exactly what our youth need today.",
         "am": "የኮዲንግ እና የህይወት ክህሎት ውህደት ለወጣቶቻችን ልክ አሁን የሚያስፈልጋቸው ነገር ነው።"
       }
+    },
+    {
+      "name": "Aster Dawith",
+      "role": {
+        "en": "Deputy Director of INSA",
+        "am": "የኢንሳ (INSA) ምክትል ዋና ዳይሬክተር"
+      },
+      "quote": {
+        "en": "Sophor's initiative to teach coding to young minds is critical for Ethiopia's digital sovereignty. Inspiring work!",
+        "am": "ለወጣቶች ኮዲንግ ለማስተማር ሶፎር የጀመረው ተነሳሽነት ለኢትዮጵያ ዲጂታል ሉዓላዊነት እጅግ ወሳኝ ነው። የሚደነቅ ስራ ነው!"
+      }
+    },
+    {
+      "name": "Dr. Hirut Kassaw",
+      "role": {
+        "en": "Former Minister of Culture and Tourism of Ethiopia",
+        "am": "የቀድሞ የባህልና ቱሪዝም ሚኒስትር"
+      },
+      "quote": {
+        "en": "Preserving our heritage while advancing in technological innovation is key. Sophor bridges these two worlds beautifully.",
+        "am": "የቴክኖሎጂ ፈጠራን እያፋጠንን ባህላዊ እሴቶቻችንን ማስቀጠል ወሳኝ ነው። ሶፎር እነዚህን ሁለት ዓለማት በውብ መንገድ ያገናኛል።"
+      }
+    },
+    {
+      "name": "Dr. Henok Mulugeta",
+      "role": {
+        "en": "Assistant Professor at Addis Ababa University",
+        "am": "ረዳት ፕሮፌሰር በአዲስ አበባ ዩኒቨርሲቲ"
+      },
+      "quote": {
+        "en": "The academic structure at Sophor is outstanding. They are preparing students for high-level computer science excellence.",
+        "am": "በሶፎር ያለው የትምህርት አሰጣጥ መዋቅር እጅግ በጣም ጥሩ ነው። ተማሪዎችን በኮምፒውተር ሳይንስ መስክ ለከፍተኛ አካዳሚያዊ ልቀት እያዘጋጁ ነው።"
+      }
+    },
+    {
+      "name": "Ato Tibebe Belete",
+      "role": {
+        "en": "Chairman of Press Ethiopia",
+        "am": "የኢትዮጵያ ፕሬስ ድርጅት የቦርድ ሰብሳቢ"
+      },
+      "quote": {
+        "en": "Digital literacy is the new foundation for communication. Sophor is training the next generation of digital storytellers.",
+        "am": "ዲጂታል እውቀት ለኮሙኒኬሽን አዲሱ መሰረት ነው። ሶፎር የሚቀጥለውን ትውልድ የዲጂታል ታሪክ ሰሪዎችን እያሰለጠነ ነው።"
+      }
+    },
+    {
+      "name": "Tigist Waltenigus",
+      "role": {
+        "en": "Co-Founder & CEO of Erq Ma'ed PsychoSocial Support Service",
+        "am": "የዕርቅ ማዕድ የስነ-ልቦና ማህበራዊ አገልግሎት ተባባሪ መስራች እና ዋና ስራ አስፈፃሚ"
+      },
+      "quote": {
+        "en": "Blending logical code education with strong psychosocial life skills ensures our children grow both intellectually and emotionally.",
+        "am": "የአስተሳሰብ ኮዲንግ ትምህርትን ከጠንካራ የስነ-ልቦና ማህበራዊ የህይወት ክህሎት ጋር ማዋሃድ ልጆቻችን በአእምሮም ሆነ በስሜት እንዲያድጉ ያደርጋል።"
+      }
     }
   ]
 }
